@@ -1,0 +1,23 @@
+
+.navbar{
+    background: #F9FCFB;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.navbar .links {
+    margin: 0 auto;
+}
+
+.navbar a {
+    text-decoration: none;
+    margin: 0 60px;
+    padding: 12px;
+}
+
+.navbar a:hover {
+    border: 2px solid;
+    border-radius: 20px;
+}
