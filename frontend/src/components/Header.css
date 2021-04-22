@@ -1,0 +1,37 @@
+
+
+.header{
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.header .icons img{
+    padding: 4px;
+    width: 33px;
+    height: 33px;
+    margin: 0 10px;
+    border: 1px solid;
+    border-radius: 20px;
+    transition: transform 0.1s;
+}
+
+.header .icons img:hover{
+    border: 2px solid;
+    transform: scale(1.1);
+}
+
+.header .logo{
+    margin: auto 0;
+    margin-left: 15px;
+}
+
+.header .icons{
+    margin: auto 0;
+    margin-right: 15px;
+}
+
+
+

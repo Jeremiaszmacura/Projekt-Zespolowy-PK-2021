@@ -1,0 +1,18 @@
+
+.search-bar{
+  margin: auto 0;
+}
+
+.search-bar input{
+  width: 400px;
+  border-radius: 25px;
+  padding: 10px 15px;
+  border: 1px solid;
+  transition: transform 0.1s;
+}
+
+.search-bar input:focus{
+  outline: none;
+  transform: scale(1.05);
+  border: 2px solid;
+}
