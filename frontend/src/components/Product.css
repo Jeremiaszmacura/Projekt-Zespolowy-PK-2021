@@ -1,0 +1,28 @@
+img{
+    padding: 10px;
+    width: 220px;
+    height: 200px;
+}
+
+.productCard{
+    margin: 10px;
+    max-width: fit-content;
+    max-height: fit-content;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 5px 5px 10px 5px #888891;
+}
+
+.productCard .info{
+    margin-bottom: 5px;
+}
+
+.price{
+    text-align: right;
+}
+
+.productContent {
+    display: flex;
+    flex-wrap: wrap;
+}

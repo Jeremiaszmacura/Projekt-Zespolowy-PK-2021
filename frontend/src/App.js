@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Content from "./routes/Content";
 import Header from "./components/Header";
 
-function App() {
+function App() { 
   return (
       <BrowserRouter>
           <div className="App">
@@ -16,13 +16,13 @@ function App() {
                         <Content category="all"/>
                      </Route>
                      <Route exact path="/laptops">
-                         <Content category="laptops"/>
+                         <Content category="Laptop"/>
                      </Route>
                      <Route exact path="/phones">
-                         <Content category="phones"/>
+                         <Content category="Smartfon"/>
                      </Route>
                      <Route exact path="/tablets">
-                         <Content category="tablets"/>
+                         <Content category="Tablet"/>
                      </Route>
                      <Route exact path="/help">
                          {/* Tutaj osobny komponent <Help/>, bo inny calkiem niz <Content/> */}
