@@ -6,18 +6,22 @@ const Product = (props) => {
     return (  
         <div className="productContent">
             {exampleData.products.map((e) => 
-                {
-                    return props.category === e.produkt || props.category === 'all' ? 
-                    <div className="productCard">
-                    <img className="medium" src ={e.image} alt="productimg"/>
-                    <div className="info">
-                        <div className="marka">{e.produkt} {e.marka}</div>
-                        <div className="nazwa">{e.nazwa}</div>
-                        <div className="price">Cena: {e.cena}</div>
+            {
+                return props.category === e.produkt || props.category === 'all' ? 
+                    <div key = {e.id}>
+                        <div className="productCard">
+                            <div className="img">
+                                <img className="medium" src ={e.image} alt="productimg"/>
+                            </div>
+                            <div className="info">
+                                <div className="marka">{e.produkt} {e.marka}</div>
+                                <div className="nazwa">{e.nazwa}</div>
+                                <div className="price">Cena: {e.cena}zł</div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                    : 
-                    null;
+                : 
+                null;
                 }
             )}
         </div>

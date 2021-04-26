@@ -5,7 +5,7 @@ const exampleData = {
                 produkt: 'Laptop',
                 nazwa: 'Ideapad 330-17AST',
                 marka: 'Lenovo',
-                cena: '3100zł',
+                cena: '3100',
                 image: '/images/laptop1.jpg'
             },
     
@@ -14,7 +14,7 @@ const exampleData = {
                 produkt: 'Laptop',
                 nazwa: 'EliteBook 840',
                 marka: 'HP',
-                cena: '2000zł',
+                cena: '2000',
                 image: '/images/laptop2.jpg'
             },
 
@@ -23,7 +23,7 @@ const exampleData = {
                 produkt: 'Tablet',
                 nazwa: 'GalaxyTab A7',
                 marka: 'SAMSUNG',
-                cena: '800zł',
+                cena: '800',
                 image: '/images/tablet.jpg'
             },
     
@@ -32,7 +32,7 @@ const exampleData = {
                 produkt: 'Tablet',
                 nazwa: 'GalaxyTab S7+',
                 marka: 'SAMSUNG',
-                cena: '4000zł',
+                cena: '4000',
                 image: '/images/tablet2.jpg'
             },  
 
@@ -41,7 +41,7 @@ const exampleData = {
                 produkt: 'Smartfon',
                 nazwa: 'iPhone 11 256GB',
                 marka: 'Apple',
-                cena: '3900zł',
+                cena: '3900',
                 image: '/images/phone1.jpg'
             }, 
             
@@ -50,7 +50,7 @@ const exampleData = {
                 produkt: 'Smartfon',
                 nazwa: 'P40 Lite',
                 marka: 'Huawei',
-                cena: '870zł',
+                cena: '870',
                 image: '/images/phone2.jpg'
             }, 
             {
@@ -58,7 +58,7 @@ const exampleData = {
                 produkt: 'Tablet',
                 nazwa: 'GalaxyTab A7',
                 marka: 'SAMSUNG',
-                cena: '800zł',
+                cena: '800',
                 image: '/images/tablet.jpg'
             },
     
@@ -67,7 +67,7 @@ const exampleData = {
                 produkt: 'Tablet',
                 nazwa: 'GalaxyTab S7+',
                 marka: 'SAMSUNG',
-                cena: '4000zł',
+                cena: '4000',
                 image: '/images/tablet2.jpg'
             },  
 
@@ -76,7 +76,7 @@ const exampleData = {
                 produkt: 'Smartfon',
                 nazwa: 'iPhone 11 256GB',
                 marka: 'Apple',
-                cena: '3900zł',
+                cena: '3900',
                 image: '/images/phone1.jpg'
             }, 
             
@@ -85,7 +85,7 @@ const exampleData = {
                 produkt: 'Smartfon',
                 nazwa: 'P40 Lite',
                 marka: 'Huawei',
-                cena: '870zł',
+                cena: '870',
                 image: '/images/phone2.jpg'
             }
         ]

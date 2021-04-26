@@ -3,10 +3,10 @@
     padding: 12px;
     margin: 10px 0;
     max-width: 200px;
-    height: 650px;
+    height: 730px;
 }
 
-.side-bar .info{
+.side-bar .filtry{
     font-weight: 600;
     font-size: 36px;
     margin-bottom: 15px;
@@ -40,7 +40,7 @@
     padding: 10px 15px;
     text-decoration: none;
     border: 1px solid;
-    transition: transform 0.1s;
+    transition: transform(0.1s);
 }
 
 .side-bar button:hover {

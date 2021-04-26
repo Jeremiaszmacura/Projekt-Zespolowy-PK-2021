@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import './Sidebar.css'
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 
     const [valueMin, setValueMin] = useState();
     const [valueMax, setValueMax] = useState();
 
     return ( 
         <div className="side-bar">
-            <div className="info">Filtry</div>
+            <div className="filtry">Filtry</div>
                 <h2>Produkty</h2>
                 <div className="categories">
                     <Link to="/laptops">Laptopy</Link><br></br>
@@ -22,13 +22,13 @@ const Sidebar = () => {
                     <input 
                         type="text"
                         placeholder="min. cena"
-                        value={valueMin}
+                        value={valueMin || ""}
                         onChange={e => setValueMin(e.target.value)}
                     />
                     <input 
                         type="text"
                         placeholder="max. cena"
-                        value={valueMax}
+                        value={valueMax|| ""}
                         onChange={e => setValueMax(e.target.value)}
                     />
                 </form>
