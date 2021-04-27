@@ -1,0 +1,34 @@
+.img .medium {
+    object-fit:contain;
+    width: 100%;
+    height: 100px;
+}
+
+.productCard{
+    display: block;
+    background-color: rgb(255, 255, 255);
+    width: 240px;
+    height: 160px;
+    border-radius: 8px; 
+    padding: 10px;
+    box-shadow: 2px 2px 4px 2px #888891;
+    transition: .2s all;
+}
+
+.price{
+    text-align: right;
+}
+
+.productContent {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+.productCard:hover{
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
