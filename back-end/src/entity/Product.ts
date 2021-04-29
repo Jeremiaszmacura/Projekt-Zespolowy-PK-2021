@@ -14,6 +14,12 @@ export class Product {
     name: string;
 
     @Column()
+    mark: string;
+
+    @Column()
+    src: string;
+
+    @Column()
     id_category: number;
 
     @Column('double precision')
