@@ -1,0 +1,211 @@
+.body-container{
+    
+    display: flex;
+    flex-direction: row;
+    
+}
+.container {
+    width: 50%;
+    min-height: 100vh;
+    padding: 5vmin 5vmin 5vmin 10vmin;
+    float: left;
+}
+
+.container + .container {
+	padding: 5vmin 10vmin 5vmin 5vmin;
+}
+
+
+input {display:none;}
+
+label {
+	width: 100%;
+    float: left;
+    background: #1f1f1f;
+    outline: none;
+    border: 0;
+    margin: 0;
+    padding: 0.65em;
+    cursor: pointer;
+    border-radius: 0.15em;
+    overflow: hidden;
+    color: #fff;
+    font-size: 1.35em;
+}
+
+label:hover {
+    background: #000;
+}
+
+input:checked + label {
+	background: #000;
+}
+
+.content1 {
+	float: left;
+    width: 100%;
+    background: #333;
+    color: #e6e6e6;
+    overflow: hidden;
+    max-height: 0vmin;
+    transition: max-height 0.75s ease 0s;
+    margin-top: -0.5vmin;
+    margin-bottom: 1vmin;
+	border-radius: 0 0 0.5vmin 0.5vmin;
+    border-bottom: 0.5vmin solid #1f1f1f;
+}
+
+label:hover + .content1 {
+    border-bottom-color: #000;
+}
+
+.content1 > div {
+	padding: 0.5em 0.75em;
+    border-left: 0.25em dotted #fff;
+    border-right: 0.25em dotted #fff;
+    text-align: justify;
+    font-size: 0.95em;
+    color: #e6e6e6;
+}
+
+.content1 a {
+    float: right;
+    background: #356379;
+    color: #fff;
+    font-size: 0.8em;
+    text-decoration: none;
+    padding: 0.25em 0.5em;
+    margin: 0.5vmin 0;
+    border-radius: 0.15em;
+    word-spacing: -0.25em;
+}
+
+
+.content1 a:hover {
+    background: #0070ca;
+}
+
+.container + .container .content1 a {
+    margin-top: 0;
+}
+
+input:checked + label + .content1 {
+	max-height: 20vh;
+	transition: max-height 0.75s ease 0s;
+}
+
+
+.container + .container input:checked + label + .content1 {
+	max-height: 10vh;
+}
+
+
+label:after {
+    content: "?";
+    float: right;
+    font-size: 0.75em;
+    background: #333;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 100%;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    line-height: 1.5em;
+    transition: all 0.5s ease 0s;
+}
+	
+label:hover:after {
+    background: #fff;
+    color: #222;
+}
+	
+input:checked + label:after {
+    background: #fff;
+    color: #222;
+    content: "\00BB";
+    transform: rotate(90deg);
+    line-height: 1.25em;
+    transition: all 0.5s ease 0s;
+    text-align: center;
+}
+	
+input:checked + label:hover:after {
+    background: #fff;
+    color: #222;
+    transform: rotate(-90deg);
+}
+
+
+label[for=view-0]:before, 
+label[for=view-1]:before, 
+label[for=view-2]:before {
+    content: "FREE";
+    font-size: 0.5em;
+    background: #a2a2a2;
+    padding: 0.25em 0.5em;
+    font-weight: bold;
+    margin: 0.4em 1em 0 0;
+    float: left;
+    color: #1f1f1f;
+    border-radius: 0.25em;
+}
+
+
+
+label[for=view-3]:before,
+label[for=view-4]:before,
+label[for=view-5]:before,
+label[for=view-6]:before {
+    content: "PRO";
+    font-size: 0.65em;
+    background: #e2c12b;
+    padding: 0.25vmin 0.65vmin;
+    font-weight: bold;
+    margin: 0.4vmin 1vmin 0 0;
+    float: left;
+    color: #1f1f1f;
+    border-radius: 0.25vmin;
+}
+
+
+input[type=radio]:checked + label:after {
+    content: "?";
+    transform: none;
+    line-height: 1.5em;
+}
+
+label[for=lay-1]:before, label[for=lay-2]:before, label[for=lay-3]:before {
+    content: "";
+    background: 
+		linear-gradient(90deg, #fff0 0vmin, #fff0 0.4em, #1f1f1f 0.4em, #1f1f1f 0.5em, #fff 0.5em), repeating-linear-gradient(0deg, #fff 0em, #fff 0.35em, #1f1f1f 0.35em, #1f1f1f 0.45em, #fff 0.45em, #fff 0.45em);
+    width: 1.25em;
+    height: 1.25em;
+    float: left;
+    margin-right: 0.35em;
+    border-radius: 0.05em;
+}
+	
+label[for=lay-2]:before {
+    background: 
+		linear-gradient(180deg, #fff0 0vmin, #fff0 0.4em, #1f1f1f 0.4em, #1f1f1f 0.5em, #fff 0.5em), repeating-linear-gradient(90deg, #fff 0em, #fff 0.35em, #1f1f1f 0.35em, #1f1f1f 0.45em, #fff 0.45em, #fff 0.45em)
+}
+
+[for=lay-3]:before {
+    background: 
+		linear-gradient(-90deg, #fff0 0vmin, #fff0 0.4em, #1f1f1f 0.4em, #1f1f1f 0.5em, #fff 0.5em), repeating-linear-gradient(180deg, #fff 0em, #fff 0.35em, #1f1f1f 0.35em, #1f1f1f 0.45em, #fff 0.45em, #fff 0.45em)
+}
+
+
+
+
+
+
+
+@media (max-width:767px){
+	.container {
+		width: 100%;
+		padding: 5vmin !important;
+		min-height: auto;
+	}
+}

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Content from "./routes/Content";
 import Header from "./components/Header";
+import Support from './components/Support';
 
 function App() { 
   return (
@@ -25,7 +26,7 @@ function App() {
                          <Content category="Tablet"/>
                      </Route>
                      <Route exact path="/help">
-                         {/* Tutaj osobny komponent <Help/>, bo inny calkiem niz <Content/> */}
+                         <Support/>
                      </Route>
                  </Switch>
               </div>
