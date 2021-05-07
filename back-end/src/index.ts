@@ -3,6 +3,7 @@ import {createConnection} from "typeorm";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 const indexRouter = require("./routes/index");
+const userRouter = require("./routes/user");
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
@@ -14,6 +15,7 @@ createConnection().then(async connection => {
 
     // register express routes from defined application routes
     app.use('/', indexRouter);
+    app.use('/users', userRouter);
 
 
     // start express server
