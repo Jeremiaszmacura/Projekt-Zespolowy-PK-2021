@@ -4,6 +4,7 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
+const productRouter = require("./routes/products");
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
@@ -16,6 +17,7 @@ createConnection().then(async connection => {
     // register express routes from defined application routes
     app.use('/', indexRouter);
     app.use('/users', userRouter);
+    app.use('/products', productRouter);
 
 
     // start express server
