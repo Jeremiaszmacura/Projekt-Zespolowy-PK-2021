@@ -4,7 +4,6 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Content from "./routes/Content";
 import Header from "./components/Header";
 import Support from './components/Support';
-
 function App() { 
   return (
       <BrowserRouter>
@@ -26,7 +25,7 @@ function App() {
                          <Content category="Tablet"/>
                      </Route>
                      <Route exact path="/help">
-                         <Support/>
+                            <Support/>
                      </Route>
                  </Switch>
               </div>

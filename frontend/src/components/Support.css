@@ -1,17 +1,17 @@
-.body-container{
+.labels-container{
     
     display: flex;
     flex-direction: row;
     
 }
-.container {
+.support-box {
     width: 50%;
     min-height: 100vh;
     padding: 5vmin 5vmin 5vmin 10vmin;
     float: left;
 }
 
-.container + .container {
+.support-box + .support-box {
 	padding: 5vmin 10vmin 5vmin 5vmin;
 }
 
@@ -85,7 +85,7 @@ label:hover + .content1 {
     background: #0070ca;
 }
 
-.container + .container .content1 a {
+.support-box + .support-box .content1 a {
     margin-top: 0;
 }
 
@@ -95,7 +95,7 @@ input:checked + label + .content1 {
 }
 
 
-.container + .container input:checked + label + .content1 {
+.support-box + .support-box input:checked + label + .content1 {
 	max-height: 10vh;
 }
 
@@ -203,7 +203,7 @@ label[for=lay-2]:before {
 
 
 @media (max-width:767px){
-	.container {
+	.support-box {
 		width: 100%;
 		padding: 5vmin !important;
 		min-height: auto;
