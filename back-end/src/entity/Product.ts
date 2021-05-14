@@ -55,4 +55,7 @@ export class Product {
     @ManyToOne(type => Category, category => category.products)
     category: Category;
 
+    @Column()
+    categoryId: number;
+
 }

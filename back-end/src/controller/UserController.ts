@@ -1,5 +1,6 @@
 import {getRepository} from "typeorm";
 import {User} from "../entity/User";
+import {UserDetails} from "../entity/UserDetails";
 
 
 const remove = async (req, res) => {
@@ -9,8 +10,11 @@ const remove = async (req, res) => {
 }
 
 const save = async (req, res) => {
-    console.log(req.body);
-    getRepository(User).save(req.body).then((result) => res.json({content: result}));
+    getRepository(User).save(req.body.user).then((result) =>
+    {
+        req.body.user_details.userId = result.id;
+        getRepository(UserDetails).save(req.body.user_details).then((result) => res.json({content: result}));
+    });
 }
 
 const one = async (req, res) => {

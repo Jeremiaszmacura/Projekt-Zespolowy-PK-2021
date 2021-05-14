@@ -9,10 +9,9 @@ export class SuppliesLists {
     id: number;
 
     @Column()
-    id_supply: number;
-
+    supplyId: number;
     @Column()
-    id_product: number;
+    productId: number;
 
     @Column()
     quantity: number;

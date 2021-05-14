@@ -32,14 +32,21 @@ export class UserDetails {
     street: string;
 
     @Column()
-    number: string;
+    house_number: string;
+
+    @Column({nullable: true})
+    apartment_number: string;
 
     @Column()
-    phone: number;
+    phone: string;
+
+    @Column()
+    userId: number;
 
     @Column({
         type: "enum",
-        enum: ["gosc", "klient", "admin", "magazynier"]
+        enum: ["gosc", "klient", "admin", "magazynier"],
+        default: "klient"
     })
     role: UserRoleType;
 

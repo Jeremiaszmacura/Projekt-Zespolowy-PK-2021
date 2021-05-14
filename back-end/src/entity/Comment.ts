@@ -20,6 +20,15 @@ export class Comment {
     @Column()
     id_comment: number;
 
+    @Column()
+    userId: number;
+
+    @Column()
+    productId: number;
+
+    @Column()
+    commentId: number;
+
     @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;
 

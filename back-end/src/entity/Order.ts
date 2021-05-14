@@ -17,6 +17,9 @@ export class Order {
     @Column('double precision')
     price: number;
 
+    @Column()
+    userId: number;
+
     @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;
 
