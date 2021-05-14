@@ -10,7 +10,7 @@ export class Category {
     @Column()
     name: string;
 
-    @OneToMany(type => Product, product => product.id_category)
+    @OneToMany(type => Product, product => product.categoryId)
     products: Product[];
 
 }

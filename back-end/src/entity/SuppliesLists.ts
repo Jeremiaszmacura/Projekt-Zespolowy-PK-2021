@@ -10,6 +10,7 @@ export class SuppliesLists {
 
     @Column()
     supplyId: number;
+
     @Column()
     productId: number;
 

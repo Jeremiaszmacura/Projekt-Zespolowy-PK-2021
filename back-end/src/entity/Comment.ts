@@ -9,19 +9,10 @@ export class Comment {
     id: number;
 
     @Column()
-    id_user: number;
-
-    @Column()
-    id_product: number;
+    userId: number;
 
     @Column()
     text: string;
-
-    @Column()
-    id_comment: number;
-
-    @Column()
-    userId: number;
 
     @Column()
     productId: number;
