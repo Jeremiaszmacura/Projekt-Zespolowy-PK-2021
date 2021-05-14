@@ -16,7 +16,7 @@ export class Supply {
     @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;
 
-    @OneToMany(type => SuppliesLists, suppliesLists => suppliesLists.id_supply)
+    @OneToMany(type => SuppliesLists, suppliesLists => suppliesLists.supplyId)
     suppliesLists: SuppliesLists[];
 
 }

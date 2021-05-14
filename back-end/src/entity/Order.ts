@@ -9,18 +9,18 @@ export class Order {
     id: number;
 
     @Column()
-    id_user: number;
-
-    @Column()
     order_status: string;
 
     @Column('double precision')
     price: number;
 
+    @Column()
+    userId: number;
+
     @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;
 
-    @OneToMany(type => ProductsLists, productsLists => productsLists.id_order)
+    @OneToMany(type => ProductsLists, productsLists => productsLists.orderId)
     productsLists: ProductsLists[];
 
     @ManyToOne(type => User, user => user.orders)

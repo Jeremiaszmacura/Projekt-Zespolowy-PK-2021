@@ -9,16 +9,16 @@ export class Comment {
     id: number;
 
     @Column()
-    id_user: number;
-
-    @Column()
-    id_product: number;
+    userId: number;
 
     @Column()
     text: string;
 
     @Column()
-    id_comment: number;
+    productId: number;
+
+    @Column()
+    commentId: number;
 
     @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;

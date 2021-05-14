@@ -9,10 +9,10 @@ export class ProductsLists {
     id: number;
 
     @Column()
-    id_order: number;
+    orderId: number;
 
     @Column()
-    id_product: number;
+    productId: number;
 
     @Column()
     quantity: number;

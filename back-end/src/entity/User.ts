@@ -17,10 +17,10 @@ export class User {
     @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;
 
-    @OneToMany(type => Order, order => order.id_user)
+    @OneToMany(type => Order, order => order.userId)
     orders: Order[];
 
-    @OneToMany(type => Comment, comment => comment.id_user)
+    @OneToMany(type => Comment, comment => comment.userId)
     comments: Comment[];
 
 }

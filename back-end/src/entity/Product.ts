@@ -20,7 +20,7 @@ export class Product {
     src: string;
 
     @Column()
-    id_category: number;
+    categoryId: number;
 
     @Column('double precision')
     price: number;
@@ -43,13 +43,13 @@ export class Product {
     @Column('double precision')
     vat: number;
 
-    @OneToMany(type => ProductsLists, productsLists => productsLists.id_product)
+    @OneToMany(type => ProductsLists, productsLists => productsLists.productId)
     productsLists: ProductsLists[];
 
-    @OneToMany(type => SuppliesLists, suppliesLists => suppliesLists.id_product)
+    @OneToMany(type => SuppliesLists, suppliesLists => suppliesLists.productId)
     suppliesLists: SuppliesLists[];
 
-    @OneToMany(type => Comment, comment => comment.id_product)
+    @OneToMany(type => Comment, comment => comment.productId)
     comments: Comment[];
 
     @ManyToOne(type => Category, category => category.products)
