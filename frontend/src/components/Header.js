@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Header.css";
 import SearchBar from "./SearchBar";
+import logo from './MaCentre.png'
 
 const Header = () => {
 
@@ -9,7 +10,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="logo">
-                <h1>LOGO</h1>
+                <img src={logo}/>
             </div>
             <SearchBar/>
             <div className="icons">
