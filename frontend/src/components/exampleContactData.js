@@ -1,26 +1,26 @@
 const exampleContactData = {
     labels:[
         {
-            id: '1',
-            id_checkbox: '1',
+            id: '5',
+            id_checkbox: '5',
             headline: "Sklep internetowy",
-            content_id: '1',
-            info: "Tego jeszcze nie wiem"
+            content_id: '5',
+            info: "Tak"
         },
         {
-            id: '2',
-            id_checkbox: "2",
+            id: '6',
+            id_checkbox: "6",
             headline: "Serwis",
-            content_id: "2",
-            info: "Tego jeszcze nie wiem"
+            content_id: "26",
+            info: "Serwis znajduje się w Krakowie przy ulicy Pawiej 3"
 
         },
         {
-            id: '3',
-            id_checkbox: "3",
+            id: '7',
+            id_checkbox: "7",
             headline: "Adres centrali",
-            content_id:  "3",
-            info: "Tego jeszcze nie wiem"  
+            content_id:  "7",
+            info: "Adres centrali\nKraków, ul. Pawia 3\n Telefon: +48123123123"  
         }
     ]
 }

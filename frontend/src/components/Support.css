@@ -1,18 +1,22 @@
 .labels-container{
-    
+    max-width: 1500px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+   
+    
     
 }
 .support-box {
     width: 50%;
-    min-height: 100vh;
-    padding: 5vmin 5vmin 5vmin 10vmin;
+    min-height: 5vh;
+    
     float: left;
 }
 
 .support-box + .support-box {
-	padding: 5vmin 10vmin 5vmin 5vmin;
+	/* padding: 5vmin 10vmin 5vmin 5vmin; */
 }
 
 
@@ -21,7 +25,7 @@ input {display:none;}
 label {
 	width: 100%;
     float: left;
-    background: #1f1f1f;
+    background: #ffffff;
     outline: none;
     border: 0;
     margin: 0;
@@ -29,16 +33,16 @@ label {
     cursor: pointer;
     border-radius: 0.15em;
     overflow: hidden;
-    color: #fff;
+    color: rgb(0, 12, 182);
     font-size: 1.35em;
 }
 
 label:hover {
-    background: #000;
+    background: rgb(204, 204, 204);
 }
 
 input:checked + label {
-	background: #000;
+	background: rgb(204, 204, 204);
 }
 
 .content1 {
@@ -137,36 +141,7 @@ input:checked + label:hover:after {
 }
 
 
-label[for=view-0]:before, 
-label[for=view-1]:before, 
-label[for=view-2]:before {
-    content: "FREE";
-    font-size: 0.5em;
-    background: #a2a2a2;
-    padding: 0.25em 0.5em;
-    font-weight: bold;
-    margin: 0.4em 1em 0 0;
-    float: left;
-    color: #1f1f1f;
-    border-radius: 0.25em;
-}
 
-
-
-label[for=view-3]:before,
-label[for=view-4]:before,
-label[for=view-5]:before,
-label[for=view-6]:before {
-    content: "PRO";
-    font-size: 0.65em;
-    background: #e2c12b;
-    padding: 0.25vmin 0.65vmin;
-    font-weight: bold;
-    margin: 0.4vmin 1vmin 0 0;
-    float: left;
-    color: #1f1f1f;
-    border-radius: 0.25vmin;
-}
 
 
 input[type=radio]:checked + label:after {
@@ -174,29 +149,6 @@ input[type=radio]:checked + label:after {
     transform: none;
     line-height: 1.5em;
 }
-
-label[for=lay-1]:before, label[for=lay-2]:before, label[for=lay-3]:before {
-    content: "";
-    background: 
-		linear-gradient(90deg, #fff0 0vmin, #fff0 0.4em, #1f1f1f 0.4em, #1f1f1f 0.5em, #fff 0.5em), repeating-linear-gradient(0deg, #fff 0em, #fff 0.35em, #1f1f1f 0.35em, #1f1f1f 0.45em, #fff 0.45em, #fff 0.45em);
-    width: 1.25em;
-    height: 1.25em;
-    float: left;
-    margin-right: 0.35em;
-    border-radius: 0.05em;
-}
-	
-label[for=lay-2]:before {
-    background: 
-		linear-gradient(180deg, #fff0 0vmin, #fff0 0.4em, #1f1f1f 0.4em, #1f1f1f 0.5em, #fff 0.5em), repeating-linear-gradient(90deg, #fff 0em, #fff 0.35em, #1f1f1f 0.35em, #1f1f1f 0.45em, #fff 0.45em, #fff 0.45em)
-}
-
-[for=lay-3]:before {
-    background: 
-		linear-gradient(-90deg, #fff0 0vmin, #fff0 0.4em, #1f1f1f 0.4em, #1f1f1f 0.5em, #fff 0.5em), repeating-linear-gradient(180deg, #fff 0em, #fff 0.35em, #1f1f1f 0.35em, #1f1f1f 0.45em, #fff 0.45em, #fff 0.45em)
-}
-
-
 
 
 
