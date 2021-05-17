@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Content from "./routes/Content";
 import Header from "./components/Header";
 import ProductDetails from './components/ProductDetails';
+import Login from "./routes/Login";
+import Register from "./routes/Register";
 
 function App() { 
   return (
@@ -28,6 +30,8 @@ function App() {
                      <Route exact path="/product-details">
                         <ProductDetails/>
                      </Route>
+                     <Route exact path="/login" component={Login}/>
+                     <Route exact path="/register" component={Register}/>
                      <Route exact path="/help">
                          {/* Tutaj osobny komponent <Help/>, bo inny calkiem niz <Content/> */}
                      </Route>

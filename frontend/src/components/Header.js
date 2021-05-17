@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Header.css";
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -10,8 +11,12 @@ const Header = () => {
             </div>
             <SearchBar/>
             <div className="icons">
+                <Link to="/">
                 <img src="/images/basket.png" alt="basket icon"/>
+                </Link>
+                <Link to="/login">
                 <img src="/images/account.png" alt="account icon"/>
+                </Link>
             </div>
         </div>
     );
