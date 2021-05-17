@@ -1,16 +1,12 @@
 import React from 'react';
 import "./Header.css";
 import SearchBar from "./SearchBar";
-import logo from './MaCentre.png'
 
 const Header = () => {
-
-
-
     return (
         <div className="header">
             <div className="logo">
-                <img src={logo}/>
+                <img src="/images/MaCentre.png"/>
             </div>
             <SearchBar/>
             <div className="icons">

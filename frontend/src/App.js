@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Content from "./routes/Content";
 import Header from "./components/Header";
+import ProductDetails from './components/ProductDetails';
 
 function App() { 
   return (
@@ -16,13 +17,16 @@ function App() {
                         <Content category="all"/>
                      </Route>
                      <Route exact path="/laptops">
-                         <Content category="Laptop"/>
+                        <Content category="Laptop"/>
                      </Route>
                      <Route exact path="/phones">
-                         <Content category="Smartfon"/>
+                        <Content category="Smartfon"/>
                      </Route>
                      <Route exact path="/tablets">
-                         <Content category="Tablet"/>
+                        <Content category="Tablet"/>
+                     </Route>
+                     <Route exact path="/product-details">
+                        <ProductDetails/>
                      </Route>
                      <Route exact path="/help">
                          {/* Tutaj osobny komponent <Help/>, bo inny calkiem niz <Content/> */}

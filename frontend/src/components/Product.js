@@ -1,10 +1,12 @@
 import exampleData from './exampleData';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import "./Product.css";
 
 const Product = (props) => {
+    const history = useHistory();
     function handleClick(id){
-        props.passedId(id) 
+        history.push('/product-details', {params: id})
     }
 
     return (  
