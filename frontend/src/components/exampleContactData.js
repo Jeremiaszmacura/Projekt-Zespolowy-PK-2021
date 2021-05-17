@@ -5,7 +5,7 @@ const exampleContactData = {
             id_checkbox: '5',
             headline: "Sklep internetowy",
             content_id: '5',
-            info: "Tak"
+            info: "www.pz-sklep.pl"
         },
         {
             id: '6',

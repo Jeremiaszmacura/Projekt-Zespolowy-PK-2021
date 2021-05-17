@@ -20,14 +20,14 @@ const exampleSupportData = {
                 id_checkbox: "3",
                 headline: "Jak zwrócić towar?",
                 content_id:  "3",
-                info: "Aby zwrócić towar należy zadzwonić do Mikołaja bo on ma magazyn na chacie."  
+                info: "Aby zwrócić towar należy zadzwonić do centrali."  
             },
             {
                 id: '4',
                 id_checkbox: "4",
                 headline: "Jak zglosic reklamację?",
                 content_id: "4",
-                info: "Zwrotów nie przyjmujemy, chyba że Mikołaj to jego musisz pytać"  
+                info: "Reklamacje mozna skladac poprzez email - xyz@xyz.xz"  
             }
         ]
 }
