@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "./SearchBar.css"
-import {useHistory, useLocation} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 const SearchBar = () => {
 
@@ -27,17 +27,16 @@ const SearchBar = () => {
                     onChange={event => setQuery(event.target.value)}
                  />
             </form>
-                <form onSubmit={searchItems}>
-                    <select value={category}
-                            onChange={(e) => setCategory(e.target.value)}>
-                        <option value="/">Wszystkie</option>
-                        <option value="/laptops">Laptopy</option>
-                        <option value="/phones">Telefony</option>
-                        <option value="/tablets">Tablety</option>
-                    </select>
-                    <button>Search</button>
-                </form>
-
+            <form onSubmit={searchItems}>
+                <select value={category}
+                        onChange={(e) => setCategory(e.target.value)}>
+                    <option value="/">Wszystkie</option>
+                    <option value="/laptops">Laptopy</option>
+                    <option value="/phones">Telefony</option>
+                    <option value="/tablets">Tablety</option>
+                </select>
+                <button>Search</button>
+            </form>
         </div>
     );
 };
