@@ -1,11 +1,15 @@
 import './index.css'
 import Navbar from "./components/Navbar";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch, useLocation} from "react-router-dom";
 import Content from "./routes/Content";
 import Header from "./components/Header";
 import ProductDetails from './components/ProductDetails';
+import UserDetails from "./routes/UserDetails";
 
-function App() { 
+
+
+function App() {
+
   return (
       <BrowserRouter>
           <div className="App">
@@ -17,7 +21,7 @@ function App() {
                         <Content category="all"/>
                      </Route>
                      <Route exact path="/laptops">
-                        <Content category="Laptop"/>
+                         <Content category="Laptop"/>
                      </Route>
                      <Route exact path="/phones">
                         <Content category="Smartfon"/>
@@ -30,6 +34,12 @@ function App() {
                      </Route>
                      <Route exact path="/help">
                          {/* Tutaj osobny komponent <Help/>, bo inny calkiem niz <Content/> */}
+                     </Route>
+                     <Route exact path="/user-profile/user-details">
+                         <UserDetails/>
+                     </Route>
+                     <Route exact path="/user-profile/user-orders">
+
                      </Route>
                  </Switch>
               </div>

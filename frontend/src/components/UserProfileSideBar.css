@@ -1,0 +1,27 @@
+
+.side-bar{
+    padding: 0;
+    width: 150px;
+}
+
+.side-bar-list{
+    height: auto;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.side-bar-list .row{
+    width: 100%;
+    height: 50px;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.side-bar-list .row:hover{
+    cursor: pointer;
+    background-color: #f4f6f7;
+}

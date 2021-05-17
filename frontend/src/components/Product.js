@@ -1,5 +1,4 @@
 import exampleData from './exampleData';
-import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import "./Product.css";
 
@@ -11,7 +10,15 @@ const Product = (props) => {
 
     return (  
         <div className="productContent">
-            {exampleData.products.filter(p => p.cena <= props.cena.max && p.cena >= props.cena.min).map((e) => 
+            {exampleData.products
+                .filter(p =>
+                    p.cena <= props.cena.max
+                    && p.cena >= props.cena.min
+                )
+                .filter(p =>
+                    !props.query && true || (p.produkt + ' ' + p.marka + ' ' + p.nazwa).toLowerCase().includes(props.query.toLowerCase())
+                )
+                .map((e) =>
             {   
                 return props.category === e.produkt || props.category === 'all'  ?
                 <a className="button" onClick={() => handleClick(e.id)}>
