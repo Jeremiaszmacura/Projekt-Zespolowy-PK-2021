@@ -3,13 +3,10 @@ import "./Header.css";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
-
-
-
     return (
         <div className="header">
             <div className="logo">
-                <h1>LOGO</h1>
+                <img src="/images/MaCentre.png"/>
             </div>
             <SearchBar/>
             <div className="icons">

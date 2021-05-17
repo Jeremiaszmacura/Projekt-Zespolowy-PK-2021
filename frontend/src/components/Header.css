@@ -26,6 +26,13 @@
 .header .logo{
     margin: auto 0;
     margin-left: 15px;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+img{
+    width: 110%;
+    height: 110%;
 }
 
 .header .icons{

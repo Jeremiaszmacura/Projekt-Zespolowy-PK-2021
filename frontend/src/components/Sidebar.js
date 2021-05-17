@@ -6,7 +6,8 @@ const Sidebar = (props) => {
 
     const [valueMin, setValueMin] = useState();
     const [valueMax, setValueMax] = useState();
-
+    const minn = valueMin;
+    const maxx = valueMax;
     return ( 
         <div className="side-bar">
             <div className="filtry">Filtry</div>
@@ -34,7 +35,10 @@ const Sidebar = (props) => {
                 </form>
             </div>
             <button>Pokaż wszystkie filtry</button><br></br>
-            <button>Filtruj produkty</button>
+            <button onClick={() => props.passValue({
+                max: maxx,
+                min: minn
+            })}>Filtruj produkty</button>
         </div>
     );
 }
