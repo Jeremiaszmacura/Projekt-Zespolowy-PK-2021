@@ -3,11 +3,11 @@ import Navbar from "./components/Navbar";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Content from "./routes/Content";
 import Header from "./components/Header";
+import Support from './components/Support';
 import ProductDetails from './components/ProductDetails';
 import UserDetails from "./routes/UserDetails";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
-
 
 
 function App() {
@@ -37,13 +37,12 @@ function App() {
                      <Route exact path="/login" component={Login}/>
                      <Route exact path="/register" component={Register}/>
                      <Route exact path="/help">
-
+                            <Support/>
                      </Route>
                      <Route exact path="/user-profile/user-details">
                          <UserDetails/>
                      </Route>
                      <Route exact path="/user-profile/user-orders">
-
                      </Route>
                  </Switch>
               </div>
