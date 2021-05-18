@@ -20,7 +20,7 @@
 }
 
 
-input {display:none;}
+.labels-container input {display:none;}
 
 label {
 	width: 100%;

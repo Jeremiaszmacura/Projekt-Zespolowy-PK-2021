@@ -1,6 +1,6 @@
 import React from 'react';
-import exampleSupport from './exampleSupportData';
-import exampleContact from './exampleContactData';
+import exampleSupport from '../components/exampleSupportData';
+import exampleContact from '../components/exampleContactData';
 import './Support.css'
 
 const Support = () =>{
