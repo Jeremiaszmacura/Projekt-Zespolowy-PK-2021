@@ -25,11 +25,13 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        console.log(user);
-        axios.get(`http://localhost:8080/users/login`, user)
+
+        axios.post(`http://localhost:8080/users/login`, user)
             .then(res => {
                 const token = res.data;
-                console.log(token);
+                if(token){
+                    localStorage.setItem("user", JSON.stringify(token));
+                }
                 alert("Zalogowałeś się. Powrót na stronę glówną");
                 
             })
