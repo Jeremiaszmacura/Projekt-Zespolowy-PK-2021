@@ -1,26 +1,22 @@
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany} from "typeorm";
-import {Order} from "./Order";
-import {Comment} from "./Comment";
+import {SuppliesLists} from "./SuppliesLists";
 
 @Entity()
-export class User {
+export class Supply {
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    email: string;
+    quantity: number;
 
     @Column()
-    password: string;
+    supply_status: string;
 
     @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;
 
-    @OneToMany(type => Order, order => order.userId)
-    orders: Order[];
-
-    @OneToMany(type => Comment, comment => comment.userId)
-    comments: Comment[];
+    @OneToMany(type => SuppliesLists, suppliesLists => suppliesLists.supplyId)
+    suppliesLists: SuppliesLists[];
 
 }
