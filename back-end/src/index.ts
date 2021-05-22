@@ -6,7 +6,6 @@ const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/products");
 
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 createConnection().then(async connection => {
 
