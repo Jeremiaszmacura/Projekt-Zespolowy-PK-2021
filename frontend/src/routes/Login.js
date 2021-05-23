@@ -26,7 +26,7 @@ class Login extends Component {
             password: this.state.password
         }
 
-        axios.post(`http://localhost:8080/users/login`, user)
+        axios.post(`http://localhost:4000/users/login`, user)
             .then(res => {
                 const token = res.data;
                 if(token){

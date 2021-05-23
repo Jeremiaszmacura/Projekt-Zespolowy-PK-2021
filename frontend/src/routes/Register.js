@@ -17,7 +17,8 @@ class Register extends Component {
             city: '',
             code: '',
             street: '',
-            number: '',
+            houseNumber: '',
+            apartmentNumber: '',
             phone: '',
         };
         
@@ -37,21 +38,22 @@ class Register extends Component {
                 password: this.state.password,
             },
             userDetails: {
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
+                first_name: this.state.firstName,
+                last_name: this.state.lastName,
                 country: this.state.country,
+                city: this.state.city,
                 code: this.state.code,
                 street: this.state.street,
-                number: this.state.number,
+                house_number: this.state.houseNumber,
+                apartment_number: this.state.apartmentNumber,
                 phone: this.state.phone
             },
             
         }
         console.log(userAll);
-        axios.post(`http://localhost:8080/users/`, userAll)
+        axios.post(`http://localhost:4000/users/register`, userAll)
             .then(res => {
                 const token = res.data;
-                console.log(token);
                 alert("Udana rejestracja. przeniesienia na stronę logowania");
                 this.props.history.push('/login');
             })
@@ -69,14 +71,15 @@ class Register extends Component {
                 <form className="loginRegisterForm" onSubmit={this.handleSubmit}>
                     <input className="loginRegisterFormInput" type="text" name="email" id="email" placeholder="E-mail" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="password" name="password" id="password" placeholder="Hasło" onChange={this.handleChange} />
-                    <input className="loginRegisterFormInput" type="password2" name="passwordAgain" id="passwordAgain" placeholder="Powtórzyć hasło" onChange={this.handleChange} />
+                    <input className="loginRegisterFormInput" type="password" name="passwordAgain" id="passwordAgain" placeholder="Powtórzyć hasło" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="text" name="firstName" id="firstName" placeholder="Imie" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="text" name="lastName" id="lastName" placeholder="Nazwisko" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="text" name="country" id="country" placeholder="Kraj" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="text" name="city" id="city" placeholder="Miasto" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="text" name="code" id="code" placeholder="Kod pocztowy" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="text" name="street" id="street" placeholder="Ulica" onChange={this.handleChange} />
-                    <input className="loginRegisterFormInput" type="text" pattern="[0-9]*" name="number" id="number" placeholder="Numer mieszkania" onChange={this.handleChange} />
+                    <input className="loginRegisterFormInput" type="text" pattern="[0-9]*" name="houseNumber" id="houseNumber" placeholder="Numer budynku" onChange={this.handleChange} />
+                    <input className="loginRegisterFormInput" type="text" pattern="[0-9]*" name="apartmentNumber" id="apartmentNumber" placeholder="Numer mieszkania" onChange={this.handleChange} />
                     <input className="loginRegisterFormInput" type="text" pattern="[0-9]*" name="phone" id="phone" placeholder="Numer telefonu" onChange={this.handleChange} />
                     <input className="loginRegisterSubmit" type="submit" value="Sign in" />
                 </form>

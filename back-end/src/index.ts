@@ -12,6 +12,8 @@ createConnection().then(async connection => {
     // create express app
     const app = express();
     app.use(bodyParser.json());
+    var cors = require('cors');
+    app.use(cors())
 
     // register express routes from defined application routes
     app.use('/', indexRouter);
