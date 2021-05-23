@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css"
 import axios from "axios";
+import authentication from "../scripts/authentication";
 
 class Login extends Component {
 
@@ -19,7 +20,6 @@ class Login extends Component {
         this.setState({ [target.name]: target.value });
     };
 
-
     handleSubmit(event) {
         const user = {
             email: this.state.email,
@@ -31,6 +31,7 @@ class Login extends Component {
                 const token = res.data;
                 if(token){
                     localStorage.setItem("user", JSON.stringify(token));
+                    this.props.setLoggedUser(authentication.getCurrentUser());
                 }
                 alert("Zalogowałeś się. Powrót na stronę glówną");
                 

@@ -8,33 +8,46 @@ import ProductDetails from './components/ProductDetails';
 import UserDetails from "./routes/UserDetails";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
+import {useEffect, useState} from "react";
+import authentication from "./scripts/authentication"
 
 
 function App() {
 
-  return (
+    const [loggedUser, setLoggedUser] = useState(null);
+
+    useEffect(() => {
+        setLoggedUser(authentication.getCurrentUser());
+    }, []);
+
+    return (
       <BrowserRouter>
           <div className="App">
-              <Header/>
-              <Navbar/>
+              <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
+              <Navbar loggedUser={loggedUser}/>
               <div className="content-container">
                  <Switch>
                      <Route exact path="/">
-                        <Content category="all"/>
+                        <Content category="all" loggedUser={loggedUser}/>
                      </Route>
-                     <Route exact path="/laptops">
-                         <Content category="Laptop"/>
+                     <Route exact path="/laptops" >
+                         <Content category="Laptop" loggedUser={loggedUser}/>
                      </Route>
                      <Route exact path="/phones">
-                        <Content category="Smartfon"/>
+                        <Content category="Smartfon" loggedUser={loggedUser}/>
                      </Route>
                      <Route exact path="/tablets">
-                        <Content category="Tablet"/>
+                        <Content category="Tablet" loggedUser={loggedUser}/>
                      </Route>
                      <Route exact path="/product-details">
-                        <ProductDetails/>
+                        <ProductDetails loggedUser={loggedUser}/>
                      </Route>
-                     <Route exact path="/login" component={Login}/>
+
+                     <Route
+                         exact path="/login"
+                         render={(props) => <Login {...props} setLoggedUser={setLoggedUser}/>}
+                     >
+                     </Route>
                      <Route exact path="/register" component={Register}/>
                      <Route exact path="/help">
                             <Support/>

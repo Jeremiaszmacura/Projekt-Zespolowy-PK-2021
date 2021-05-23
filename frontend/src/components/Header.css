@@ -7,21 +7,45 @@
     margin: 10px auto;
 }
 
-.header .icons{
-    margin: auto 20px auto 0;
-}
 
-.header .icons img{
+.header .loggedPanel img{
     padding: 5px;
     width: 40px;
     height: 35px;
-    margin: 0 10px;
+    margin: auto 10px;
     border: 1px solid;
     border-radius: 25px;
     transition: 0.2s all;
 }
 
-.header .icons img:hover{
+.loggedPanel{
+    display: flex;
+}
+
+
+.header .links{
+    margin: auto 20px auto 0;
+}
+
+.header .links a {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 25px;
+    text-decoration: none;
+    width: 60px;
+    margin: 0 10px;
+    padding: 10px;
+    transition:  0.2s all;
+}
+
+.header .links a:hover{
+    border: 2px solid;
+    transform: scale(1.1);
+    box-shadow: 0px 2px 5px 2px lightgray;
+}
+
+.header img:hover{
     border: 2px solid;
     transform: scale(1.1);
     box-shadow: 0px 2px 5px 2px lightgray;
