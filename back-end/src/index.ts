@@ -5,6 +5,7 @@ import * as bodyParser from "body-parser";
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/products");
+var cors = require('cors')
 
 
 createConnection().then(async connection => {
@@ -12,6 +13,8 @@ createConnection().then(async connection => {
     // create express app
     const app = express();
     app.use(bodyParser.json());
+
+    app.use(cors())
 
     // register express routes from defined application routes
     app.use('/', indexRouter);
