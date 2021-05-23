@@ -4,10 +4,8 @@
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
-   
-    
-    
 }
+
 .support-box {
     width: 50%;
     min-height: 5vh;
@@ -22,7 +20,7 @@
 
 .labels-container input {display:none;}
 
-label {
+.labels-container label {
 	width: 100%;
     float: left;
     background: #ffffff;
@@ -37,11 +35,11 @@ label {
     font-size: 1.35em;
 }
 
-label:hover {
+.labels-container label:hover {
     background: rgb(204, 204, 204);
 }
 
-input:checked + label {
+.labels-container input:checked + label {
 	background: rgb(204, 204, 204);
 }
 
@@ -59,7 +57,7 @@ input:checked + label {
     border-bottom: 0.5vmin solid #1f1f1f;
 }
 
-label:hover + .content1 {
+.labels-container label:hover + .content1 {
     border-bottom-color: #000;
 }
 
@@ -93,7 +91,7 @@ label:hover + .content1 {
     margin-top: 0;
 }
 
-input:checked + label + .content1 {
+.labels-container input:checked + label + .content1 {
 	max-height: 20vh;
 	transition: max-height 0.75s ease 0s;
 }
@@ -104,7 +102,7 @@ input:checked + label + .content1 {
 }
 
 
-label:after {
+.labels-container label:after {
     content: "?";
     float: right;
     font-size: 0.75em;
@@ -118,13 +116,13 @@ label:after {
     line-height: 1.5em;
     transition: all 0.5s ease 0s;
 }
-	
-label:hover:after {
+
+.labels-container label:hover:after {
     background: #fff;
     color: #222;
 }
-	
-input:checked + label:after {
+
+.labels-container input:checked + label:after {
     background: #fff;
     color: #222;
     content: "\00BB";
@@ -133,25 +131,19 @@ input:checked + label:after {
     transition: all 0.5s ease 0s;
     text-align: center;
 }
-	
-input:checked + label:hover:after {
+
+.labels-container input:checked + label:hover:after {
     background: #fff;
     color: #222;
     transform: rotate(-90deg);
 }
 
 
-
-
-
-input[type=radio]:checked + label:after {
+.labels-container input[type=radio]:checked + label:after {
     content: "?";
     transform: none;
     line-height: 1.5em;
 }
-
-
-
 
 
 @media (max-width:767px){

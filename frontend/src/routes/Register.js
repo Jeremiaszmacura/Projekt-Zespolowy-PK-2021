@@ -54,7 +54,7 @@ class Register extends Component {
         axios.post(`http://localhost:4000/users/register`, userAll)
             .then(res => {
                 const token = res.data;
-                alert("Udana rejestracja. przeniesienia na stronę logowania");
+                alert("Udana rejestracja. Przeniesienie na stronę logowania");
                 this.props.history.push('/login');
             })
             .catch(res =>{
