@@ -29,12 +29,13 @@ class Login extends Component {
         axios.post(`http://localhost:4000/users/login`, user)
             .then(res => {
                 const token = res.data;
-                if(token){
+                if(token !== "Wrong password!"){
                     localStorage.setItem("user", JSON.stringify(token));
                     this.props.setLoggedUser(authentication.getCurrentUser());
+                    alert("Zalogowałeś się. Powrót na stronę glówną");
+                } else {
+                    throw Error("Zle hasło");
                 }
-                alert("Zalogowałeś się. Powrót na stronę glówną");
-                
             })
             .catch(res =>{
                 console.error(res);

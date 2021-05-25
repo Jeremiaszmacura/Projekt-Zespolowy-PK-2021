@@ -13,9 +13,6 @@ const changeUserDetails = (userDetails) => {
         body: JSON.stringify(userDetails)
     }
 
-    console.log(options);
-    console.log(userDetails);
-
     return fetch(CHANGE_DETAILS_URL, options)
         .then(response => {
             return response;
@@ -23,6 +20,27 @@ const changeUserDetails = (userDetails) => {
 
 }
 
+const changeUserPassword = (newPassword) => {
+
+    const CHANGE_PASSWORD_URL = "http://localhost:4000/users/changePassword/";
+
+    const options = {
+        method: 'PUT',
+        headers:  {
+            'Authorization': authentication.authenticationHeader(),
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newPassword)
+    }
+
+    return fetch(CHANGE_PASSWORD_URL, options)
+        .then(response => {
+            return response;
+        });
+
+}
+
 export default {
-    changeUserDetails
+    changeUserDetails,
+    changeUserPassword
 }

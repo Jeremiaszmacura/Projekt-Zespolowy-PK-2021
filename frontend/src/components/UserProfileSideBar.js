@@ -8,6 +8,7 @@ const UserProfileSideBar = () => {
 
     const menuItems = [
         {title: "Moje dane", link: "/user-profile/user-details"},
+        {title: "Zmień hasło", link: "/user-profile/change-password"},
         {title: "Moje zakupy", link: "/user-profile/user-orders"}
     ]
 
