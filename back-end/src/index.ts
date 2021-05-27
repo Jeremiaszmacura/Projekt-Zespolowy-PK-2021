@@ -6,6 +6,7 @@ const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/products");
 const orderRouter = require("./routes/orders");
+const supplyRouter = require("./routes/supplies");
 var cors = require('cors')
 
 
@@ -22,6 +23,7 @@ createConnection().then(async connection => {
     app.use('/users', userRouter);
     app.use('/products', productRouter);
     app.use('/orders', orderRouter);
+    app.use('/supplies', supplyRouter);
 
 
     // start express server

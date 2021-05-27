@@ -1,7 +1,5 @@
 import {getRepository} from "typeorm";
 import {Order} from "../entity/Order";
-import {User} from "../entity/User";
-import {UserDetails} from "../entity/UserDetails";
 import {ProductsLists} from "../entity/ProductsLists";
 
 
@@ -12,19 +10,19 @@ const save = async (req, res) => {
         products: [
             {
                 productId: id1,
-                quantuty: quantity1
+                quantity: quantity1
             },
             {
                 productId: id2,
-                quantuty: quantity2
+                quantity: quantity2
             },
             {
                 productId: id3,
-                quantuty: quantity3
+                quantity: quantity3
             },
             {
                 productId: id4,
-                quantuty: quantity4
+                quantity: quantity4
             }
         ]
     }
