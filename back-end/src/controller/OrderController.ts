@@ -39,9 +39,34 @@ const save = async (req, res) => {
         });
         return res.json(result);
     });
+};
 
-}
+const getOrder = async (req, res) => {
+    await getRepository(Order).findOne({where: {userId: req.user.id}})
+        .then((result) => {
+            getRepository(ProductsLists).find({where: {orderId: result.id}}).then((result2) => {
+                return res.json({"price": result.price,
+                    "order_status": result.order_status,
+                    "created_at": result.created_at,
+                    "products": result2
+                });
+            });
+        });
+};
+
+const setStatusPaid = async (req, res) => {
+    await getRepository(Order).findOne({where: {id: req.params.id}})
+        .then((result) => {
+            result.order_status = "oplacone";
+            getRepository(Order).save(result).then((result) => {
+                res.json(result);
+            });
+        });
+};
+
 
 module.exports = {
-    save
+    save,
+    getOrder,
+    setStatusPaid
 };
