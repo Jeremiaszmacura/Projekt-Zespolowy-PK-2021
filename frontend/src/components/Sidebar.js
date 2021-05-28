@@ -18,8 +18,7 @@ const Sidebar = (props) => {
                     <Link to="/tablets">Tablety</Link><br></br>
                 </div>
             <h2>Cena</h2>
-            <div className="cena">
-                <form>
+            <div className="filtrCena">
                     <input 
                         type="text"
                         placeholder="min. cena"
@@ -32,13 +31,14 @@ const Sidebar = (props) => {
                         value={valueMax|| ""}
                         onChange={e => setValueMax(e.target.value)}
                     />
-                </form>
             </div>
-            <button>Pokaż wszystkie filtry</button><br></br>
+            <div className="sidebarButtons">
+            {/* <button>Pokaż wszystkie filtry</button><br></br> */}
             <button onClick={() => props.passValue({
                 max: maxx,
                 min: minn
             })}>Filtruj produkty</button>
+            </div>
         </div>
     );
 }

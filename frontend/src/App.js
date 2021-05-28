@@ -10,6 +10,7 @@ import Login from "./routes/Login";
 import Register from "./routes/Register";
 import {useEffect, useState} from "react";
 import authentication from "./scripts/authentication"
+import UserOrders from './routes/UserOrders';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                          <UserDetails/>
                      </Route>
                      <Route exact path="/user-profile/user-orders">
+                         <UserOrders/>
                      </Route>
                  </Switch>
               </div>

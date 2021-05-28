@@ -1,21 +1,47 @@
-import React, { useState } from 'react'
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { useHistory, useLocation } from "react-router-dom";
 import exampleData from './exampleData';
 import './ProductDetails.css'
+import Cookies from 'js-cookie'
 
 const ProductDetails = () => {
     const location = useLocation();
     const myid = location.state.params;
-    const ilosc = 5;
+    const [test, setTest] = useState(7)
+    const [dostepnaIlosc, setDostepnaIlosc] = useState(test-1)
     const [amount, setAmount] = useState(1);
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    function handleClick(prop){
-        if(amount >= 0 && amount < ilosc){
-        if(prop === 1) setAmount(amount+1)
-        if(prop === 2) setAmount(amount-1)
+    const history = useHistory();
+    async function handleCartClick(id, productAmount){
+        await delay(1000)
+        history.push('/user-profile/user-orders', {id: id, amount: productAmount})
+        window.location.reload()
+    }
+
+    function handleAdd(){
+        if(dostepnaIlosc !== 0){
+            setAmount(amount+1)
+            setDostepnaIlosc(dostepnaIlosc-1)
         }
     }
-    
+
+    function handleSub(){
+        if(amount !== 1){
+            setAmount(amount-1)
+            setDostepnaIlosc(dostepnaIlosc+1)
+        }
+    }
+   
+    useEffect(() => {
+        if(!Cookies.get('ids')){
+            var tm = [];
+            tm.push(myid)
+            var json = JSON.stringify(tm)
+            Cookies.set('ids', json)
+        }
+    }, [myid])
+
     return (
         <div className="detailsComponent">
             {exampleData.products.map((e) => {
@@ -35,13 +61,13 @@ const ProductDetails = () => {
                     </div>
                     <div className="priceDetails">
                         <div className="cena">{e.cena}zł</div>
-                        <div className="dostepnosc">Dostępnych sztuk: {ilosc}</div>
+                        <div className="dostepnosc">Dostępnych sztuk: {test}</div>
                         <div className="amount">
                             <div>Wybierz ilosc: {amount}</div>
-                            <button className="bt" onClick={() => handleClick(1)}>+</button>
-                            <button className="bt" onClick={() => handleClick(2)}>-</button>
+                            <button className="bt" onClick={() => handleAdd()}>+</button>
+                            <button className="bt" onClick={() => handleSub()}>-</button>
                         </div>
-                        <div className="addToCard">Dodaj do koszyka</div>
+                        <div className="addToCard" onClick={() => handleCartClick(myid, amount)}>Dodaj do koszyka</div>
                     </div>
                 </div>
                 
