@@ -30,14 +30,16 @@ const save = async (req, res) => {
     Tworzę listę zakupów w products_lists (tyle rekordów ile elementów w tablicy)
      */
 
-    getRepository(Order).save({'price': req.body.price, 'userId': req.user.id}).then((result) =>
+    await getRepository(Order).save({'price': req.body.price, 'userId': req.user.id}).then((result) =>
     {
         const orderId = result.id;
         req.body.products.forEach(function (product) {
             product.orderId = orderId;
             getRepository(ProductsLists).save(product);
         });
+        return res.json(result);
     });
+
 }
 
 module.exports = {
