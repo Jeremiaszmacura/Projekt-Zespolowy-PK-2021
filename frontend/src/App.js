@@ -11,7 +11,7 @@ import Register from "./routes/Register";
 import {useEffect, useState} from "react";
 import authentication from "./scripts/authentication"
 import ChangePassword from "./routes/ChangePassword";
-
+import AddProduct from "./routes/AddProduct";
 
 function App() {
 
@@ -50,6 +50,7 @@ function App() {
                      >
                      </Route>
                      <Route exact path="/register" component={Register}/>
+                     <Route exact path="/add-product" component={AddProduct}/>
                      <Route exact path="/help">
                             <Support/>
                      </Route>
