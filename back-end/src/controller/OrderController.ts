@@ -1,6 +1,7 @@
 import {getRepository} from "typeorm";
 import {Order} from "../entity/Order";
 import {ProductsLists} from "../entity/ProductsLists";
+import {Product} from "../entity/Product";
 
 
 const save = async (req, res) => {
@@ -54,6 +55,13 @@ const findOrder = async (req, res, result) => {
                 "products": result2
             };
         });
+    }
+    for (let order of orders) {
+        for (let product of order.products) {
+            await getRepository(Product).findOne({where: {id: product.productId}}).then((result2) => {
+                product.name = result2.name;
+            });
+        }
     }
     res.json(orders);
 }
