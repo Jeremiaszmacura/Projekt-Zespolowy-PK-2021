@@ -1,6 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne} from "typeorm";
 import {ProductsLists} from "./ProductsLists";
 import {User} from "./User";
+export type OrderStatus = "nieoplacone" | "oplacone" | "dostarczone"
 
 @Entity()
 export class Order {
@@ -8,8 +9,12 @@ export class Order {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    order_status: string;
+    @Column({
+        type: "enum",
+        enum: ["nieoplacone", "oplacone", "dostarczone"],
+        default: "nieoplacone"
+    })
+    order_status: OrderStatus;
 
     @Column('double precision')
     price: number;

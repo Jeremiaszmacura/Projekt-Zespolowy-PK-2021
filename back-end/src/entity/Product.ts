@@ -28,13 +28,13 @@ export class Product {
     @Column()
     description: string;
 
-    @Column()
+    @Column({default: 0})
     pluses: number;
 
-    @Column()
+    @Column({default: 0})
     minuses: number;
 
-    @Column()
+    @Column({default: 0})
     visited: number;
 
     @Column()
