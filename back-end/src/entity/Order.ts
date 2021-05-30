@@ -1,6 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne} from "typeorm";
 import {ProductsLists} from "./ProductsLists";
 import {User} from "./User";
+
 export type OrderStatus = "nieoplacone" | "oplacone" | "dostarczone"
 
 @Entity()
