@@ -1,5 +1,6 @@
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany} from "typeorm";
 import {SuppliesLists} from "./SuppliesLists";
+
 export type SupplyStatus = "zamowione" | "zrealizowane"
 
 @Entity()
