@@ -31,8 +31,7 @@ const save = async (req, res) => {
     Tworzę listę zakupów w products_lists (tyle rekordów ile elementów w tablicy)
      */
 
-    await getRepository(Order).save({'price': req.body.price, 'userId': req.user.id}).then((result) =>
-    {
+    await getRepository(Order).save({'price': req.body.price, 'userId': req.user.id}).then((result) => {
         const orderId = result.id;
         req.body.products.forEach(function (product) {
             product.orderId = orderId;
@@ -41,7 +40,6 @@ const save = async (req, res) => {
         return res.json(result);
     });
 };
-
 
 
 const findOrder = async (req, res, result) => {
@@ -60,6 +58,10 @@ const findOrder = async (req, res, result) => {
         for (let product of order.products) {
             await getRepository(Product).findOne({where: {id: product.productId}}).then((result2) => {
                 product.name = result2.name;
+                product.price = result2.price;
+                product.description = result2.description;
+                product.src = result2.src;
+                product.mark = result2.mark;
             });
         }
     }
