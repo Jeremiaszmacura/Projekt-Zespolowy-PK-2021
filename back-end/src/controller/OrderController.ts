@@ -60,6 +60,10 @@ const findOrder = async (req, res, result) => {
         for (let product of order.products) {
             await getRepository(Product).findOne({where: {id: product.productId}}).then((result2) => {
                 product.name = result2.name;
+                product.price = result2.price;
+                product.description = result2.description;
+                product.src = result2.src;
+                product.mark = result2.mark;
             });
         }
     }
