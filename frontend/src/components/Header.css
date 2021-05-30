@@ -56,9 +56,15 @@
     margin: 0 0 0 20px;
 }
 
-.header .logo img{
+.header .logo{
     height: 70px;
     width: 160px;
+}
+
+.logo .medium{
+    object-fit:contain;
+    width: 100%;
+    height: 70px;
 }
 
 

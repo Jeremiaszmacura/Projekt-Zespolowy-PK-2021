@@ -2,16 +2,25 @@ import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, Man
 import {ProductsLists} from "./ProductsLists";
 import {User} from "./User";
 
+export type OrderStatus = "nieoplacone" | "oplacone" | "dostarczone"
+
 @Entity()
 export class Order {
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    order_status: string;
+    @Column({
+        type: "enum",
+        enum: ["nieoplacone", "oplacone", "dostarczone"],
+        default: "nieoplacone"
+    })
+    order_status: OrderStatus;
 
-    @Column('double precision')
+    @Column({
+        type: "double precision",
+        nullable: true
+    })
     price: number;
 
     @Column()

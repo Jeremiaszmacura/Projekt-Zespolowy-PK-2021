@@ -15,7 +15,7 @@ const Header = ({loggedUser, setLoggedUser}) => {
     return (
         <div className="header">
             <div className="logo">
-                <img src="/images/MaCentre.png"/>
+                <img  className="medium" src="/images/MaCentre.png"/>
             </div>
             <SearchBar/>
             { !loggedUser &&

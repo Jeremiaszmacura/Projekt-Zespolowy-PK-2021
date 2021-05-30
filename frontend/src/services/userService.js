@@ -40,7 +40,8 @@ const changeUserPassword = (newPassword) => {
 
 }
 
+
 export default {
     changeUserDetails,
-    changeUserPassword
+    changeUserPassword,
 }
