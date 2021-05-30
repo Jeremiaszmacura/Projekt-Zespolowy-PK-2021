@@ -17,10 +17,10 @@ export class SuppliesLists {
     @Column()
     quantity: number;
 
-    @ManyToOne(type => Product, product => product.suppliesLists)
-    product: Product;
-
     @ManyToOne(type => Supply, supply => supply.suppliesLists)
     supply: Supply;
+
+    @ManyToOne(type => Product, product => product.suppliesLists)
+    product: Product;
 
 }

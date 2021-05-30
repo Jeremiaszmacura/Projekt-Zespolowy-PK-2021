@@ -47,6 +47,11 @@ const UserOrders = () => {
             </div>
         </div>
     );
+
+const UserOrders = () => {
+
+
+
 };
 
 export default UserOrders;

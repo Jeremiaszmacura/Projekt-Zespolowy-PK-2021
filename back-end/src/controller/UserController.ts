@@ -11,16 +11,18 @@ function generateAccessToken(id) {
 
 const login = async (req, res) => {
     await getRepository(User).findOne({where: {email: req.body.email}}).then((result) => {
+        if (!result) {
+            return res.json('User does not exist');
+        }
         bcrypt.compare(req.body.password, result.password, (err, result2) => {
             if (err) {
-                return res.status(500).render('500');
+                return res.json(err.toString());
             }
             if (result2) {
-                console.log(result.id);
                 const token = generateAccessToken({ id: result.id });
                 return res.json(token);
             }
-            res.json('Wrong password!');
+            return res.json('Wrong password!');
         });
     });
 }
@@ -66,6 +68,32 @@ const updateUserPassword = async (req, res) => {
     });
 };
 
+const all = async (req, res) => {
+    getRepository(User).find().then((result) => res.json(result));
+};
+
+const getAllUsers = async (req, res) => {
+    getRepository(UserDetails).findOne({where: {userId: req.user.id}})
+        .then((result) => {
+            if (result.role !== 'admin'){
+                return res.json('You have to be an admin.');
+            }
+            all(req, res);
+        });
+};
+
+const setAdmin = async (req, res) => {
+    getRepository(UserDetails).findOne({where: {userId: req.user.id}})
+        .then((result) => {
+            if (result.role !== 'admin'){
+                return res.json('You have to be an admin.');
+            }
+            getRepository(UserDetails).findOne({where: {userId: req.params.id}}).then((result) => {
+                result.role = 'admin';
+                getRepository(UserDetails).save(result).then((result) => res.json(result));
+            });
+        });
+};
 
 module.exports = {
     postUserRegister,
@@ -73,5 +101,7 @@ module.exports = {
     getUserDetails,
     updateUserDetails,
     updateUserPassword,
-    login
+    login,
+    getAllUsers,
+    setAdmin
 };
