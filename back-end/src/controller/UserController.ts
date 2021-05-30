@@ -10,21 +10,33 @@ function generateAccessToken(id) {
     return jwt.sign(id, process.env.TOKEN_SECRET, {expiresIn: '18000s'});
 }
 
-const login = async (req, res) => {
-    await getRepository(User).findOne({where: {email: req.body.email}}).then((result) => {
-        if (!result) {
-            return res.json('User does not exist');
-        }
+const getRole = async (id) => {
+    await getRepository(UserDetails).findOne({where: {userId: id}}).then((result) => {
+        return result.role;
+    });
+}
+
+const compareUser = async (req, res, result) => {
+    if (!result) {
+        return res.json('User does not exist');
+    }
+    await getRepository(UserDetails).findOne({where: {userId: result.id}}).then((userDetails) => {
         bcrypt.compare(req.body.password, result.password, (err, result2) => {
             if (err) {
                 return res.json(err.toString());
             }
             if (result2) {
                 const token = generateAccessToken({id: result.id});
-                return res.json(token);
+                return res.json({"token": token, "role": userDetails.role});
             }
             return res.json('Wrong password!');
         });
+    });
+}
+
+const login = async (req, res) => {
+    await getRepository(User).findOne({where: {email: req.body.email}}).then((result) => {
+        compareUser(req, res, result);
     });
 }
 
