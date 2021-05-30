@@ -5,6 +5,8 @@
     padding: 12px;
     max-width: 200px;
     height: 1000px;
+    display: flex;
+    flex-direction: column;
 }
 
 .side-bar .filtry{
@@ -28,10 +30,14 @@
     text-decoration: none;
 }
 
-.side-bar .cena input{
+.side-bar .filtrCena{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.side-bar .filtrCena input{
     width: 80px;
     border-radius: 5px;
-    margin: 5px;
     border: 1px solid;
 }
 
@@ -41,7 +47,12 @@
     padding: 10px 15px;
     text-decoration: none;
     border: 1px solid;
+    width: 90%;
     transition: transform(0.1s);
+}
+
+.sidebarButtons{
+    text-align: center;
 }
 
 .side-bar button:hover {
