@@ -41,16 +41,27 @@ const save = async (req, res) => {
     });
 };
 
+
+
+const findOrder = async (req, res, result) => {
+    let orders = [];
+    for (let order of result) {
+        await getRepository(ProductsLists).find({where: {orderId: order.id}}).then((result2) => {
+            orders[orders.length] = {
+                "price": order.price,
+                "order_status": order.order_status,
+                "created_at": order.created_at,
+                "products": result2
+            };
+        });
+    }
+    res.json(orders);
+}
+
 const getOrder = async (req, res) => {
-    await getRepository(Order).findOne({where: {userId: req.user.id}})
+    await getRepository(Order).find({where: {userId: req.user.id}})
         .then((result) => {
-            getRepository(ProductsLists).find({where: {orderId: result.id}}).then((result2) => {
-                return res.json({"price": result.price,
-                    "order_status": result.order_status,
-                    "created_at": result.created_at,
-                    "products": result2
-                });
-            });
+            findOrder(req, res, result);
         });
 };
 
