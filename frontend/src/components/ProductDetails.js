@@ -15,7 +15,7 @@ const ProductDetails = () => {
     const history = useHistory();
     async function handleCartClick(id, productAmount){
         await delay(1000)
-        history.push('/user-profile/user-orders', {id: id, amount: productAmount})
+        history.push('/cart', {id: id, amount: productAmount})
         window.location.reload()
     }
 

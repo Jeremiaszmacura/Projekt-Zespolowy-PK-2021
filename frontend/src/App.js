@@ -12,6 +12,7 @@ import {useEffect, useState} from "react";
 import authentication from "./scripts/authentication"
 import UserOrders from './routes/UserOrders';
 import ChangePassword from "./routes/ChangePassword";
+import Basket from './routes/Basket';
 
 
 function App() {
@@ -56,6 +57,9 @@ function App() {
                      </Route>
                      <Route exact path="/user-profile/user-details">
                          <UserDetails/>
+                     </Route>
+                     <Route exact path="/cart">
+                         <Basket/>
                      </Route>
                      <Route exact path="/user-profile/change-password">
                          <ChangePassword/>
