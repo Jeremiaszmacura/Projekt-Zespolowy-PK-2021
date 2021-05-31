@@ -16,6 +16,8 @@ createConnection().then(async connection => {
     // create express app
     const app = express();
     app.use(bodyParser.json());
+    var cors = require('cors');
+    app.use(cors())
 
     app.use(cors())
 
