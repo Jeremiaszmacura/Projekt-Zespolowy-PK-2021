@@ -28,9 +28,11 @@ class Login extends Component {
 
         axios.post(`http://localhost:4000/users/login`, user)
             .then(res => {
-                const token = res.data;
-                if(token !== "Wrong password!"){
-                    localStorage.setItem("user", JSON.stringify(token));
+                const data = res.data;
+                if(data !== "Wrong password!" && data !== "User does not exist"){
+                    console.log('Im here');
+                    localStorage.setItem("user", JSON.stringify(data.token));
+                    localStorage.setItem("role", JSON.stringify(data.role));
                     this.props.setLoggedUser(authentication.getCurrentUser());
                     alert("Zalogowałeś się. Powrót na stronę glówną");
                 } else {

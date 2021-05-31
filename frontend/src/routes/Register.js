@@ -32,12 +32,13 @@ class Register extends Component {
     };
 
     handleSubmit(event) {
+        event.preventDefault();
         const userAll = {
             user: {
                 email: this.state.email,
                 password: this.state.password,
             },
-            userDetails: {
+            user_details: {
                 first_name: this.state.firstName,
                 last_name: this.state.lastName,
                 country: this.state.country,
@@ -54,6 +55,7 @@ class Register extends Component {
         axios.post(`http://localhost:4000/users/register`, userAll)
             .then(res => {
                 const token = res.data;
+                console.log(token);
                 alert("Udana rejestracja. Przeniesienie na stronę logowania");
                 this.props.history.push('/login');
             })
@@ -62,7 +64,7 @@ class Register extends Component {
                 alert("Błąd z rejestracją. Powrót na stronę glówną");
                 this.props.history.push('/');
             });
-        event.preventDefault();     
+
     }
 
     render() {

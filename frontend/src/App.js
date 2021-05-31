@@ -14,20 +14,23 @@ import UserOrders from './routes/UserOrders';
 import ChangePassword from "./routes/ChangePassword";
 import AddProduct from "./routes/AddProduct";
 import Basket from './routes/Basket';
+import UsersManagement from "./routes/UsersManagement";
 
 function App() {
 
     const [loggedUser, setLoggedUser] = useState(null);
+    const [userRole, setUserRole] = useState(null);
 
     useEffect(() => {
         setLoggedUser(authentication.getCurrentUser());
+        setUserRole(authentication.getUserRole());
     }, []);
 
     return (
       <BrowserRouter>
           <div className="App">
               <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
-              <Navbar loggedUser={loggedUser}/>
+              <Navbar loggedUser={loggedUser} userRole={userRole}/>
               <div className="content-container">
                  <Switch>
                      <Route exact path="/">
@@ -55,6 +58,9 @@ function App() {
                      <Route exact path="/add-product" component={AddProduct}/>
                      <Route exact path="/help">
                             <Support/>
+                     </Route>
+                     <Route exact path="/users-management">
+                         <UsersManagement/>
                      </Route>
                      <Route exact path="/user-profile/user-details">
                          <UserDetails/>

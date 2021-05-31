@@ -11,6 +11,7 @@ const authenticationHeader = () => {
 
 const logout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("role");
     console.log("logged out");
 }
 
@@ -18,8 +19,13 @@ const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 };
 
+const getUserRole = () => {
+    return JSON.parse(localStorage.getItem("role"));
+}
+
 export default {
   authenticationHeader,
   logout,
-    getCurrentUser
+    getCurrentUser,
+    getUserRole
 };
