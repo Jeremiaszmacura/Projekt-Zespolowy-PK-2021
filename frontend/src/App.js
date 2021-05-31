@@ -56,7 +56,7 @@ function App() {
                             <Support/>
                      </Route>
                      <Route exact path="/user-profile/user-details">
-                         <UserDetails/>
+                         <UserDetails loggedUser={loggedUser}/>
                      </Route>
                      <Route exact path="/cart">
                          <Basket/>

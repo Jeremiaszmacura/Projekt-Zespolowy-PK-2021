@@ -3,6 +3,7 @@ import "./Header.css";
 import SearchBar from "./SearchBar";
 import {Link, useHistory} from "react-router-dom";
 import authentication from "../scripts/authentication";
+import Cookies from 'js-cookie';
 
 const Header = ({loggedUser, setLoggedUser}) => {
 
@@ -10,6 +11,10 @@ const Header = ({loggedUser, setLoggedUser}) => {
 
     const goToUserProfilePage = () => {
         history.push('/user-profile/user-details');
+    }
+
+    const goToUserCart = () => {
+        history.push('/cart');
     }
 
     return (
@@ -26,12 +31,13 @@ const Header = ({loggedUser, setLoggedUser}) => {
             }
             { loggedUser &&
             <div className="loggedPanel">
-                    <img src="/images/basket.png" alt="basket icon"/>
+                    <img src="/images/basket.png" alt="basket icon" onClick={goToUserCart}/>
                     <img src="/images/account.png" alt="account icon" onClick={goToUserProfilePage}/>
                 <div className="links">
                     <Link  to="/"
                            onClick={ () => {
                                authentication.logout();
+                               Cookies.remove('ids')
                                setLoggedUser(null);
                            }}>Logout</Link>
                 </div>

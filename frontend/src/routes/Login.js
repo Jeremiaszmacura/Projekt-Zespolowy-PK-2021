@@ -32,7 +32,7 @@ class Login extends Component {
                 if(token !== "Wrong password!"){
                     localStorage.setItem("user", JSON.stringify(token));
                     this.props.setLoggedUser(authentication.getCurrentUser());
-                    alert("Zalogowałeś się. Powrót na stronę glówną");
+                    alert("Zalogowałeś się. Powrót na stronę główną");
                 } else {
                     throw Error("Zle hasło");
                 }
