@@ -44,8 +44,8 @@ const AdminSite = () => {
         const product = {
             name: name,
             mark: mark,
-            url: url,
-            category: category,
+            src: url,
+            categoryId: category,
             price: price,
             description: description,
             quantity: quantity
