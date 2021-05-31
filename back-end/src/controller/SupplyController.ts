@@ -30,8 +30,7 @@ const save = async (req, res) => {
     Tworzę listę zapotrzebowanie w supplies_lists (tyle rekordów ile elementów w tablicy)
      */
 
-    getRepository(Supply).save({}).then((result) =>
-    {
+    getRepository(Supply).save({}).then((result) => {
         const supplyId = result.id;
         req.body.products.forEach(function (product) {
             product.supplyId = supplyId;
@@ -45,7 +44,8 @@ const getSupplies = async (req, res) => {
     await getRepository(Supply).find()
         .then((result) => {
             getRepository(SuppliesLists).find().then((result2) => {
-                return res.json({"supplies": result,
+                return res.json({
+                    "supplies": result,
                     "supplies_lists": result2
                 });
             });

@@ -7,11 +7,11 @@ async function authenticateToken(req, res, next) {
 
     const data = jwt.verify(token, process.env.TOKEN_SECRET);
 
-        if (!data) return res.sendStatus(403).json('Something is wrong with token.');
+    if (!data) return res.sendStatus(403).json('Something is wrong with token.');
 
-        req.user = data
+    req.user = data
 
-        next()
+    next()
 }
 
 module.exports = {

@@ -1,6 +1,7 @@
 import {getRepository} from "typeorm";
 import {Order} from "../entity/Order";
 import {ProductsLists} from "../entity/ProductsLists";
+import {Product} from "../entity/Product";
 
 
 const save = async (req, res) => {
@@ -30,8 +31,7 @@ const save = async (req, res) => {
     Tworzę listę zakupów w products_lists (tyle rekordów ile elementów w tablicy)
      */
 
-    await getRepository(Order).save({'price': req.body.price, 'userId': req.user.id}).then((result) =>
-    {
+    await getRepository(Order).save({'price': req.body.price, 'userId': req.user.id}).then((result) => {
         const orderId = result.id;
         req.body.products.forEach(function (product) {
             product.orderId = orderId;
@@ -41,16 +41,37 @@ const save = async (req, res) => {
     });
 };
 
-const getOrder = async (req, res) => {
-    await getRepository(Order).findOne({where: {userId: req.user.id}})
-        .then((result) => {
-            getRepository(ProductsLists).find({where: {orderId: result.id}}).then((result2) => {
-                return res.json({"price": result.price,
-                    "order_status": result.order_status,
-                    "created_at": result.created_at,
-                    "products": result2
-                });
+
+const findOrder = async (req, res, result) => {
+    let orders = [];
+    for (let order of result) {
+        await getRepository(ProductsLists).find({where: {orderId: order.id}}).then((result2) => {
+            orders[orders.length] = {
+                "price": order.price,
+                "order_status": order.order_status,
+                "created_at": order.created_at,
+                "products": result2
+            };
+        });
+    }
+    for (let order of orders) {
+        for (let product of order.products) {
+            await getRepository(Product).findOne({where: {id: product.productId}}).then((result2) => {
+                product.name = result2.name;
+                product.price = result2.price;
+                product.description = result2.description;
+                product.src = result2.src;
+                product.mark = result2.mark;
             });
+        }
+    }
+    res.json(orders);
+}
+
+const getOrder = async (req, res) => {
+    await getRepository(Order).find({where: {userId: req.user.id}})
+        .then((result) => {
+            findOrder(req, res, result);
         });
 };
 
