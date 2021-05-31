@@ -15,6 +15,7 @@ import ChangePassword from "./routes/ChangePassword";
 import AddProduct from "./routes/AddProduct";
 import Basket from './routes/Basket';
 import UsersManagement from "./routes/UsersManagement";
+import { storage } from "./firebase";
 
 function App() {
 
