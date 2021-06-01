@@ -11,9 +11,14 @@ const AdminSite = () => {
     const [category, setCategory] = useState("1");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(false);
     const [name, setName] = useState("");
+    const [status,setStatus] = useState(false);
 
+    const sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
+      
     const handleFile = e => {
         if (e.target.files[0]) {
             setImage(e.target.files[0]);
@@ -21,7 +26,7 @@ const AdminSite = () => {
         console.log(mark);
     }
 
-    const handleSubmit = event => {
+    const uploadFile = () => {
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
         uploadTask.on(
             "state_changed",
@@ -36,34 +41,40 @@ const AdminSite = () => {
                     .getDownloadURL()
                     .then(thisurl => {
                         console.log(thisurl);
-                        setUrl(thisurl);
+                        setUrl(thisurl);                       
+                        
+                        const product = {
+                            name: name,
+                            mark: mark,
+                            src: thisurl,
+                            categoryId: category,
+                            price: price,
+                            description: description,
+                            quantity: quantity
+                        }
+                        console.log(product);
+                        axios.post(`http://localhost:4000/products/`, product, {headers: {'Authorization': authentication.authenticationHeader()}})
+                            .then(res => {
+                                const token = res.data;
+                                if(token !== "blad"){
+                                    alert("Dodales produkt pomyslnie");
+                                } else {
+                                    throw Error("Nie dodano produktu");
+                                }
+                            })
+                            .catch(res =>{
+                                console.error(res);
+                                alert("Blad z dodaniem produktu");
+                            });
+                           
                     })
             }
         );
+    }
 
-        const product = {
-            name: name,
-            mark: mark,
-            src: url,
-            categoryId: category,
-            price: price,
-            description: description,
-            quantity: quantity
-        }
-        console.log(product);
-        axios.post(`http://localhost:4000/products/`, product, {headers: {'Authorization': authentication.authenticationHeader()}})
-            .then(res => {
-                const token = res.data;
-                if(token !== "blad"){
-                    alert("Dodales produkt pomyslnie");
-                } else {
-                    throw Error("Nie dodano produktu");
-                }
-            })
-            .catch(res =>{
-                console.error(res);
-                alert("Blad z dodaniem produktu");
-            });
+     const handleSubmit = async event => {
+        
+        uploadFile();
         event.preventDefault();
     }
         
@@ -91,6 +102,7 @@ const AdminSite = () => {
                     <p>Zdjęcie</p>
                     <input className="loginRegisterFormInput" type="file" name="file" id="file" accept="image/x-png,image/jpeg" onChange={handleFile} />
                     <input className="loginRegisterSubmit" type="submit" value="Dodaj produkt" />
+                    <img src={url} alt="new"/>
                 </form>
             </div>
         )
