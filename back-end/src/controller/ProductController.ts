@@ -11,13 +11,7 @@ const remove = async (req, res) => {
 };
 
 const save = async (req, res) => {
-    let image = req.files[0];
-    console.log(req.files[0].originalname)
-    console.log(image)
-    //image.mv('./uploads/' + image.originalname);
-
-    //getRepository(Product).save(req.body).then((result) => res.json(result));
-    return {};
+    getRepository(Product).save(req.body).then((result) => res.json(result));
 };
 
 const one = async (req, res) => {
