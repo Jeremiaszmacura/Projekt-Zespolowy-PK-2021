@@ -23,8 +23,6 @@ class ChangeRole extends Component {
             .then(res => {
                 const users = res.data;
                 this.setState({ users });
-                console.log("mount");
-                console.log(res.data[0].id);
                 const userId = res.data[0].id;
                 this.setState({ userId });
                 if (!userId){
@@ -36,18 +34,14 @@ class ChangeRole extends Component {
 
     handleChange = ({ target }) => {
         const userId = target.value;
-        console.log(userId);
         this.setState({ userId });
     };
 
     handleSubmit(event) {
 
-
-        console.log(this.state.userId);
         let userId = this.state.userId;
         let url = `http://localhost:4000/users/setAdmin/` + userId;
-        console.log(url);
-        axios.post(url, { headers: { 'Authorization': authentication.authenticationHeader() } })
+        axios.post(url,null, { headers: { 'Authorization': authentication.authenticationHeader() } })
             .then(res => {
                 const token = res.data;
                 if (token !== "blad") {
