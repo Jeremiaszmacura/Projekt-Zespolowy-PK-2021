@@ -23,7 +23,6 @@ const AdminSite = () => {
         if (e.target.files[0]) {
             setImage(e.target.files[0]);
         }
-        console.log(mark);
     }
 
     const uploadFile = () => {

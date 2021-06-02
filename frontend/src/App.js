@@ -16,6 +16,7 @@ import AddProduct from "./routes/AddProduct";
 import Basket from './routes/Basket';
 import UsersManagement from "./routes/UsersManagement";
 import { storage } from "./firebase";
+import ChangeRole from './routes/ChangeRole';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
                      </Route>
                      <Route exact path="/register" component={Register}/>
                      <Route exact path="/add-product" component={AddProduct}/>
+                     <Route exact path="/change-role" component={ChangeRole}/>
                      <Route exact path="/help">
                             <Support/>
                      </Route>
