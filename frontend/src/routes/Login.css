@@ -57,6 +57,10 @@ textarea {
     padding-bottom: 1em;
 }
 
+.loginRegisterSubmit:hover{
+    cursor: pointer;
+}
+
 .loginRegister a{
     display: inline-block;
     text-align: center;

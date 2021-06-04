@@ -4,18 +4,46 @@ import exampleData from './exampleData';
 import './ProductDetails.css'
 import Cookies from 'js-cookie'
 
-const ProductDetails = () => {
+const ProductDetails = ({loggedUser}) => {
     const location = useLocation();
     const myid = location.state.params;
     const [test, setTest] = useState(7)
     const [dostepnaIlosc, setDostepnaIlosc] = useState(test-1)
     const [amount, setAmount] = useState(1);
+    const [set, setSet] = useState(0)
+    const [checkState, setCheckState] = useState(false)
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const history = useHistory();
     async function handleCartClick(id, productAmount){
+        if(!Cookies.get('ids')){
+            var tm = {
+                prodID: [],
+                prodAm: [],
+            };
+            tm.prodID.push(id)
+            tm.prodAm.push(`${productAmount}`)
+            var json = JSON.stringify(tm)
+            Cookies.set('ids', json)
+        }
+
+        if(Cookies.get('ids')){
+            let tmp = JSON.parse(Cookies.get('ids'))
+            let productsidentifyer = tmp.prodID
+            if(productsidentifyer.includes(id) === false){
+                setCheckState(true)
+            }
+
+            if(checkState === true){
+                tmp.prodID.push(id)
+                tmp.prodAm.push(productAmount)
+                let json = JSON.stringify(tmp)
+                Cookies.set('ids', json)
+            }
+        }
+
         await delay(1000)
-        history.push('/cart', {id: id, amount: productAmount})
+        history.push('/cart')
         window.location.reload()
     }
 
@@ -32,15 +60,6 @@ const ProductDetails = () => {
             setDostepnaIlosc(dostepnaIlosc+1)
         }
     }
-   
-    useEffect(() => {
-        if(!Cookies.get('ids')){
-            var tm = [];
-            tm.push(myid)
-            var json = JSON.stringify(tm)
-            Cookies.set('ids', json)
-        }
-    }, [myid])
 
     return (
         <div className="detailsComponent">
@@ -67,7 +86,9 @@ const ProductDetails = () => {
                             <button className="bt" onClick={() => handleAdd()}>+</button>
                             <button className="bt" onClick={() => handleSub()}>-</button>
                         </div>
-                        <div className="addToCard" onClick={() => handleCartClick(myid, amount)}>Dodaj do koszyka</div>
+                        {
+                            loggedUser && <div className="addToCard" onClick={() => handleCartClick(myid, amount)}>Dodaj do koszyka</div>
+                        }
                     </div>
                 </div>
                 
