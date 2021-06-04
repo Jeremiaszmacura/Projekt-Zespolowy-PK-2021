@@ -1,6 +1,7 @@
 import {getRepository} from "typeorm";
 import {Product} from "../entity/Product";
 import {Category} from "../entity/Category";
+var fs = require('fs');
 
 
 const remove = async (req, res) => {
@@ -10,8 +11,6 @@ const remove = async (req, res) => {
 };
 
 const save = async (req, res) => {
-    console.log(req.body);
-    console.log(req);
     getRepository(Product).save(req.body).then((result) => res.json(result));
 };
 

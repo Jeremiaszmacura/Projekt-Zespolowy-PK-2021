@@ -9,7 +9,9 @@ const productRouter = require("./routes/products");
 const orderRouter = require("./routes/orders");
 const supplyRouter = require("./routes/supplies");
 var cors = require('cors')
-
+var bodyParser = require('body-parser');
+var multer = require('multer');
+var upload = multer();
 
 createConnection().then(async connection => {
 
@@ -19,7 +21,8 @@ createConnection().then(async connection => {
     var cors = require('cors');
     app.use(cors())
 
-    app.use(cors())
+    // for parsing multipart/form-data
+    app.use(upload.array('file'));
 
     // register express routes from defined application routes
     app.use('/', indexRouter);
