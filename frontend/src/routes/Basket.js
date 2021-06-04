@@ -2,6 +2,8 @@ import Cookies from 'js-cookie';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import exampleData from '../components/exampleData';
+import useFetch from "../services/useFetch";
+import authentication from "../scripts/authentication";
 import './Basket.css'
 
 const Basket = () => {
@@ -10,6 +12,59 @@ const Basket = () => {
     const [selected, setSelected] = useState("")
     const history = useHistory()
     let adresPaczkomatu;
+
+    const GET_ITEMS_URL = 'http://localhost:4000/products/';
+
+    const {data: products, isLoading, error, reFetch} = useFetch(GET_ITEMS_URL, {});
+
+    function HandleOrderClick(){
+        let arr = JSON.parse(Cookies.get('ids'))
+        let orderArr = []
+        for(let i = 0; i < arr.productId.length; i++){
+            let f1 = arr.productId[i]
+            let f2 = arr.quantity[i]
+            let testArr = 
+                {
+                    productId: f1,
+                    quantity: f2
+                }
+            orderArr.push(testArr)
+        }
+
+        fetch("http://localhost:4000/orders/", {
+            method: "POST",
+            headers: {
+                'Authorization': authentication.authenticationHeader(),
+                'Content-Type': 'application/json'
+            },
+            body:{
+                price: priceForAll,
+                products: orderArr
+            }
+        }).then((response) => response.json()
+            .catch(err => {
+                console.log(err)
+                return {};
+            })).then((json) => {
+                console.log(json)
+            }).catch((err) => {
+                console.log('posting order failed', err)
+            })
+        // const POST_ORDER_URL = "http://localhost:4000/orders/";
+        // const options = {
+        //     method: 'POST',
+        //     headers:  {
+        //         'Authorization': authentication.authenticationHeader(),
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body:{
+        //         price: priceForAll,
+        //         products: orderArr
+        //     }
+        // }
+
+        // const {data: orders, isLoading, error, refetch} = useFetch(POST_ORDER_URL, options);
+    }
 
     const changeSelectOptionHandler = (event) => {
         setSelected(event.target.value)
@@ -21,20 +76,36 @@ const Basket = () => {
         </div>
     }
 
-    let stanKoszyka
+    useEffect(() => {
+        if(Cookies.get('ids')){
+        let arr = JSON.parse(Cookies.get('ids'))
+        let cena = 0
+        if(products){
+            for(let i = 0; i < products.length; i++){
+                for(let j = 0; j < products.length; j++){
+                    if((arr.productId[i]) === (products[j].id)){
+                        cena += Number(arr.quantity[i]) * products[j].price
+                        setPriceForAll(cena)
+                    }
+                }
+            }
+        }
+        }
+    }, [products])
 
+    let stanKoszyka
     if(Cookies.get('ids')){
         let arr = JSON.parse(Cookies.get('ids'))
         stanKoszyka = <div className="cartComponent">
         <div className="payment">
-        {(arr.prodID).map((z, i) => exampleData.products.filter((p) => p.id === z).map((e) => {
+        {products && (arr.productId).map((z, i) => products.filter((p) => p.id === z).map((e) => {
             return e.id === z ? 
             <div className="fullProductInfo">
-                <img src = {e.image}/>
-                <div className="nameProduct">{e.marka} {e.nazwa}</div>
-                <div className="productAmount">Ilość: {arr.prodAm[i]} </div>
+                <img src = {e.src}/>
+                <div className="nameProduct">{e.mark} {e.name}</div>
+                <div className="productAmount">Ilość: {arr.quantity[i]} </div>
                 <div className="cenaProduct">Cena: 
-                <div className="cn">{e.cena*arr.prodAm[i]}</div>zł</div>
+                <div className="cn">{e.price*arr.quantity[i]}</div>zł</div>
             </div>
             :
             null
@@ -53,18 +124,10 @@ const Basket = () => {
         </select>
         </div>
         {adresPaczkomatu}
-            <button className="order" onClick={() => {Cookies.remove('ids')}}>Złóż zamówienie</button>
+            <button className="order" onClick={HandleOrderClick}>Złóż zamówienie</button>
         </div>
         
         </div>
-
-        // let tmp = JSON.parse(Cookies.get('ids'))
-        // let price = document.getElementsByClassName('cn')            
-        // let val = 0;
-        // for(let i = 0; i < tmp.prodID.length; i++){
-        //     val += Number(price[i].innerHTML)
-        // }
-        // setPriceForAll(val)
     }
 
     if(!Cookies.get('ids')){
