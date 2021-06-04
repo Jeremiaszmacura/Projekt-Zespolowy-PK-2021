@@ -2,6 +2,7 @@ import {getRepository} from "typeorm";
 import {Order} from "../entity/Order";
 import {ProductsLists} from "../entity/ProductsLists";
 import {Product} from "../entity/Product";
+import {Category} from "../entity/Category";
 
 
 const save = async (req, res) => {
@@ -62,6 +63,9 @@ const findOrder = async (req, res, result) => {
                 product.description = result2.description;
                 product.src = result2.src;
                 product.mark = result2.mark;
+            });
+            await getRepository(Category).findOne({where: {id: product.categoryId}}).then((result2) => {
+                product.category = result2.name;
             });
         }
     }
