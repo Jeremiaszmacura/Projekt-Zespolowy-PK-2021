@@ -19,7 +19,14 @@ const one = async (req, res) => {
 };
 
 const all = async (req, res) => {
-    getRepository(Product).find().then((result) => res.json(result));
+    let products;
+    await getRepository(Product).find().then((result) => products = result);
+    for (let product of products) {
+        await getRepository(Category).findOne({where: {id: product.categoryId}}).then((result2) => {
+            product.category = result2.name;
+        });
+    }
+    res.json(products);
 };
 
 const saveCategory = async (req, res) => {

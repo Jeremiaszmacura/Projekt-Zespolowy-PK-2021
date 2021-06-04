@@ -64,9 +64,6 @@ const findOrder = async (req, res, result) => {
                 product.src = result2.src;
                 product.mark = result2.mark;
             });
-            await getRepository(Category).findOne({where: {id: product.categoryId}}).then((result2) => {
-                product.category = result2.name;
-            });
         }
     }
     res.json(orders);
