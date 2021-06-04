@@ -33,6 +33,7 @@ const useFetch = (url, options) => {
                 setIsLoading(false);
                 setData(data);
                 console.log("Im in setData!");
+                console.log(data);
                 setError(null);
             })
             .catch(error => {

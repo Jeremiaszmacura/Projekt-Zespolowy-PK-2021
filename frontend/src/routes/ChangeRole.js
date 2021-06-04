@@ -22,6 +22,7 @@ class ChangeRole extends Component {
         axios.get(`http://localhost:4000/users/allUsers`,{ headers: { 'Authorization': authentication.authenticationHeader() } })
             .then(res => {
                 const users = res.data;
+                console.log('Im in users');
                 this.setState({ users });
                 const userId = res.data[0].id;
                 this.setState({ userId });

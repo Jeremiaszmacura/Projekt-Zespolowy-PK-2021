@@ -14,7 +14,6 @@ import UserOrders from './routes/UserOrders';
 import ChangePassword from "./routes/ChangePassword";
 import AddProduct from "./routes/AddProduct";
 import Basket from './routes/Basket';
-import UsersManagement from "./routes/UsersManagement";
 import { storage } from "./firebase";
 import ChangeRole from './routes/ChangeRole';
 
@@ -26,7 +25,7 @@ function App() {
     useEffect(() => {
         setLoggedUser(authentication.getCurrentUser());
         setUserRole(authentication.getUserRole());
-    }, []);
+    } );
 
     return (
       <BrowserRouter>
@@ -62,9 +61,7 @@ function App() {
                      <Route exact path="/help">
                             <Support/>
                      </Route>
-                     <Route exact path="/users-management">
-                         <UsersManagement/>
-                     </Route>
+
                      <Route exact path="/user-profile/user-details">
                          <UserDetails/>
                      </Route>
