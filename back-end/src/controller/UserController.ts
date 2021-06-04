@@ -8,13 +8,13 @@ const bcrypt = require('bcrypt');
 
 function generateAccessToken(id) {
     return jwt.sign(id, process.env.TOKEN_SECRET, {expiresIn: '18000s'});
-}
+};
 
 const getRole = async (id) => {
     await getRepository(UserDetails).findOne({where: {userId: id}}).then((result) => {
         return result.role;
     });
-}
+};
 
 const compareUser = async (req, res, result) => {
     if (!result) {
@@ -32,19 +32,19 @@ const compareUser = async (req, res, result) => {
             return res.json('Wrong password!');
         });
     });
-}
+};
 
 const login = async (req, res) => {
     await getRepository(User).findOne({where: {email: req.body.email}}).then((result) => {
         compareUser(req, res, result);
     });
-}
+};
 
 const remove = async (req, res) => {
     getRepository(User).findOne(req.user.id).then((result) => {
         getRepository(User).remove(result).then((result) => res.json(result));
     });
-}
+};
 
 const postUserRegister = async (req, res) => {
     req.body.user.password = await bcrypt.hash(req.body.user.password, 10);
