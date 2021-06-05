@@ -41,7 +41,7 @@ function App() {
                          <Content category="Laptop" loggedUser={loggedUser}/>
                      </Route>
                      <Route exact path="/phones">
-                        <Content category="Smartfon" loggedUser={loggedUser}/>
+                        <Content category="Telefon" loggedUser={loggedUser}/>
                      </Route>
                      <Route exact path="/tablets">
                         <Content category="Tablet" loggedUser={loggedUser}/>
