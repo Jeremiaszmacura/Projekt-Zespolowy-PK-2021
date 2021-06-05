@@ -35,7 +35,7 @@ class Login extends Component {
                     localStorage.setItem("user", JSON.stringify(data.token));
                     localStorage.setItem("role", JSON.stringify(data.role));
                     this.props.setLoggedUser(authentication.getCurrentUser());
-                    alert("Zalogowałeś się. Powrót na stronę glówną");
+                    alert("Zalogowałeś się. Powrót na stronę główną");
                 } else {
                     throw Error("Zle hasło");
                 }

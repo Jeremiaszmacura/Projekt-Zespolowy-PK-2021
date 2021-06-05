@@ -21,7 +21,6 @@
 }
 
 .fullProductInfo:hover{
-    cursor: pointer;
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
@@ -39,14 +38,16 @@
 
 .cenaProduct{
     margin-left: 20px;
+    display: flex;
 }
 
 .cart{
     display: flex;
     margin-top: 20px;
     margin-left: 50px;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    min-height: 200px;
+    max-height: 600px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -56,18 +57,63 @@
     transition: .2s all;
 }
 
+.cart .inp{
+    margin-top: 15px;
+}
+
 .cart .order{
-    margin-top: 40px;
-    border: lightgreen solid;
-    border-width: thin;
+    margin-top: 10px;
+    border: none;
     padding: 10px;
     border-radius: 15px;
-    background-color: white;
+    background-color: limegreen;
+    color: white;
+}
+
+.cart .paczkomat input{
+    margin-top: 20px;
+    height: 200px;
+    width: 200px;
+    size: 200;
+}
+
+.pustyKoszyk{
+    margin: 70px;
+    font-size: 50px;
+}
+
+.pustyKoszyk button{
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: limegreen;
+    color: white;
+}
+
+.pustyKoszyk button:hover{
+    background-color: darkgreen;
+    cursor: pointer;
 }
 
 .cart .order:hover{
-    background-color: lightgreen;
+    background-color: darkgreen;
     cursor: pointer;
+}
+
+.fullProductInfo button{
+    padding: 10px;
+    margin-left: 175px;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.fullProductInfo button:hover{
+    cursor: pointer;
+    background-color: darkred;
 }
 
 

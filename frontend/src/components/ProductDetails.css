@@ -70,8 +70,9 @@
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 15px;
-    border: lightgreen solid;
-    border-width: thin;
+    border: none;
+    background-color: limegreen;
+    color: white;
 }
 
 .priceDetails .amount{
@@ -87,7 +88,7 @@
 }
 
 .addToCard:hover{
-    background-color: lightgreen;
+    background-color: darkgreen;
     cursor: pointer;
 }
 
