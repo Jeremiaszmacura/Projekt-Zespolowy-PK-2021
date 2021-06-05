@@ -8,7 +8,7 @@ import useFetch from "../services/useFetch";
 const ProductDetails = ({loggedUser}) => {
     const location = useLocation();
     const myid = location.state.params;
-    const [test, setTest] = useState(7)
+    const [test, setTest] = useState(0)
     const [dostepnaIlosc, setDostepnaIlosc] = useState(test-1)
     const [amount, setAmount] = useState(1);
     const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -90,6 +90,15 @@ const ProductDetails = ({loggedUser}) => {
                         </div>
                     </div>
                     <div className="priceDetails">
+                        {
+                            (test === 0) ? (
+                              <div>
+                                  <div className="cena">{e.price}zł</div>
+                                  <div className="dostepnosc">Dostępnych sztuk: {test}</div>
+                                  <div className="notAv"><h3>Produkt chwilowo niedostępny.</h3></div>
+                              </div>
+                            ) : (
+                                <div>
                         <div className="cena">{e.price}zł</div>
                         <div className="dostepnosc">Dostępnych sztuk: {test}</div>
                         <div className="amount">
@@ -98,8 +107,9 @@ const ProductDetails = ({loggedUser}) => {
                             <button className="bt" onClick={() => handleSub()}>-</button>
                         </div>
                         {
-                            loggedUser && <div className="addToCard" onClick={() => handleCartClick(e.id, amount)}>Dodaj do koszyka</div>
+                            loggedUser && test > 0 && <div className="addToCard" onClick={() => handleCartClick(e.id, amount)}>Dodaj do koszyka</div>
                         }
+                        </div>)}
                     </div>
                 </div>
                 

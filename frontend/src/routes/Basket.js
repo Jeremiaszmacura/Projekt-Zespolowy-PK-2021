@@ -53,15 +53,15 @@ const Basket = () => {
             })
     }
 
-    const changeSelectOptionHandler = (event) => {
-        setSelected(event.target.value)
-    }
+    // const changeSelectOptionHandler = (event) => {
+    //     setSelected(event.target.value)
+    // }
 
-    if(selected === 'Paczkomat'){
-        adresPaczkomatu = <div className="paczkomat">
-            <input placeholder="Wprowadź adres paczkomatu..."></input>
-        </div>
-    }
+    // if(selected === 'Paczkomat'){
+    //     adresPaczkomatu = <div className="paczkomat">
+    //         <input placeholder="Wprowadź adres paczkomatu..."></input>
+    //     </div>
+    // }
 
     function array_move(arr, old_index, new_index) {
         if (new_index >= arr.length) {
@@ -133,14 +133,14 @@ const Basket = () => {
             <div className="priceForAll">Do zapłaty:</div>
             <br></br>
             <h3>{priceForAll} zł</h3>
-            <div className="inp">
+            {/* <div className="inp">
             <div>Wysyłka do:</div>
         <select onChange={changeSelectOptionHandler}>
             <option>Wybierz..</option>
             <option>Mój adres</option>
             <option>Paczkomat</option>
         </select>
-        </div>
+        </div> */}
         {adresPaczkomatu}
             <button className="order" onClick={HandleOrderClick}>Złóż zamówienie</button>
         </div>
