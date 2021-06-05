@@ -93,7 +93,6 @@ const AdminSite = () => {
                     <input className="loginRegisterFormInput" type="number" name="price" id="price" onChange={e => setPrice(e.target.value)}  />
                     <p>Kategoria</p>
                     <select className="loginRegisterFormInput" value={category} onChange={e => setCategory(e.target.value)} >
-                        <option value="1" >Komputer</option>
                         <option value="2" >Laptop</option>
                         <option value="3" >Tablet</option>
                         <option value="4" >Telefon</option>
