@@ -30,6 +30,7 @@ const Basket = () => {
                 }
             orderArr.push(testArr)
         }
+        console.log(orderArr)
 
         fetch("http://localhost:4000/orders/", {
             method: "POST",
@@ -37,10 +38,10 @@ const Basket = () => {
                 'Authorization': authentication.authenticationHeader(),
                 'Content-Type': 'application/json'
             },
-            body:{
+            body: JSON.stringify({
                 price: priceForAll,
                 products: orderArr
-            }
+            })
         }).then((response) => response.json()
             .catch(err => {
                 console.log(err)
@@ -50,20 +51,6 @@ const Basket = () => {
             }).catch((err) => {
                 console.log('posting order failed', err)
             })
-        // const POST_ORDER_URL = "http://localhost:4000/orders/";
-        // const options = {
-        //     method: 'POST',
-        //     headers:  {
-        //         'Authorization': authentication.authenticationHeader(),
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body:{
-        //         price: priceForAll,
-        //         products: orderArr
-        //     }
-        // }
-
-        // const {data: orders, isLoading, error, refetch} = useFetch(POST_ORDER_URL, options);
     }
 
     const changeSelectOptionHandler = (event) => {
@@ -74,6 +61,37 @@ const Basket = () => {
         adresPaczkomatu = <div className="paczkomat">
             <input placeholder="Wprowadź adres paczkomatu..."></input>
         </div>
+    }
+
+    function array_move(arr, old_index, new_index) {
+        if (new_index >= arr.length) {
+            var k = new_index - arr.length + 1;
+            while (k--) {
+                arr.push(undefined);
+            }
+        }
+        arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+        return arr;
+    }
+
+    function HandleDelete(id){
+        let arr = JSON.parse(Cookies.get('ids'))
+        for(let i = 0; i < arr.productId.length; i++){
+            if(arr.productId[i] === id){
+                array_move(arr.productId, i, arr.productId.length-1)
+                array_move(arr.quantity, i, arr.quantity.length-1)
+                arr.productId.pop()
+                arr.quantity.pop()
+                if(arr.productId.length === 0){
+                    Cookies.remove('ids')
+                }else{
+                    let fixed = JSON.stringify(arr)
+                    console.log(fixed)
+                    Cookies.set('ids', fixed)
+                }
+            }
+        }
+        window.location.reload()
     }
 
     useEffect(() => {
@@ -89,8 +107,7 @@ const Basket = () => {
                     }
                 }
             }
-        }
-        }
+        }}
     }, [products])
 
     let stanKoszyka
@@ -106,6 +123,7 @@ const Basket = () => {
                 <div className="productAmount">Ilość: {arr.quantity[i]} </div>
                 <div className="cenaProduct">Cena: 
                 <div className="cn">{e.price*arr.quantity[i]}</div>zł</div>
+                <button className="deleteButton" onClick={() => HandleDelete(e.id)}>Usuń</button>
             </div>
             :
             null

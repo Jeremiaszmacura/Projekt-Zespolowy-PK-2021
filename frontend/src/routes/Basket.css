@@ -21,7 +21,6 @@
 }
 
 .fullProductInfo:hover{
-    cursor: pointer;
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
@@ -101,6 +100,20 @@
 .cart .order:hover{
     background-color: darkgreen;
     cursor: pointer;
+}
+
+.fullProductInfo button{
+    padding: 10px;
+    margin-left: 175px;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.fullProductInfo button:hover{
+    cursor: pointer;
+    background-color: darkred;
 }
 
 
