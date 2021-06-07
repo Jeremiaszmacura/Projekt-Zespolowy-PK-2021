@@ -1,0 +1,63 @@
+.side-bar {
+    box-shadow: 0 0 5px 1px lightgray;
+    clip-path: inset(0px -15px 0px -15px);
+    margin-top: -10px;
+    padding: 12px;
+    max-width: 200px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar .filtry{
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.side-bar h2{
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.side-bar .categories {
+    margin-top: 15px;
+    display: grid;
+    text-align: center;
+}
+
+.side-bar a{
+    text-decoration: none;
+}
+
+.side-bar .filtrCena{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.side-bar .filtrCena input{
+    width: 80px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.side-bar button{
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid;
+    width: 90%;
+    transition: transform(0.1s);
+}
+
+.sidebarButtons{
+    text-align: center;
+}
+
+.side-bar button:hover {
+    outline: none;
+    transform: scale(1.05);
+    border: 2px solid;
+    cursor: pointer;
+}

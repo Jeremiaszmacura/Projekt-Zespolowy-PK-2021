@@ -1,0 +1,101 @@
+.detailsComponent{
+    width: 1300px;
+    margin-left: 290px;
+    height: fit-content;
+    display: block;
+    margin-top: 50px;
+}
+
+.product{
+    display: flex;
+}
+
+.product img{
+    object-fit:contain;
+    width: 50%;
+    height: 500px;
+}
+
+.productName{
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+.fullName{
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.productDetails{
+    margin-top: 20px;
+    border: grey solid;
+    border-width: thin;
+    border-radius: 10px;
+}
+
+.productDetails .if{
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.priceDetails{
+    margin-top: 55px;
+    margin-left: 20px;
+    width: 200px;
+    height: 250px;
+    border: grey solid;
+    border-width: thin;
+    border-radius: 10px;
+}
+
+.cena{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.dostepnosc{
+    margin-top: 40px;
+    display: block;
+    text-align: center;
+}
+
+.addToCard{
+    padding: 10px;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: limegreen;
+    color: white;
+}
+
+.priceDetails .amount{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.priceDetails .amount .bt{
+    margin-left: 5px;
+    background: none;
+    border-width: thin;
+}
+
+.addToCard:hover{
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+.notAv{
+    display: flex;
+    height: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+

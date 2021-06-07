@@ -1,6 +1,7 @@
 import {getRepository} from "typeorm";
 import {Product} from "../entity/Product";
 import {Category} from "../entity/Category";
+var fs = require('fs');
 
 
 const remove = async (req, res) => {
@@ -10,8 +11,6 @@ const remove = async (req, res) => {
 };
 
 const save = async (req, res) => {
-    console.log(req.body);
-    console.log(req);
     getRepository(Product).save(req.body).then((result) => res.json(result));
 };
 
@@ -20,7 +19,14 @@ const one = async (req, res) => {
 };
 
 const all = async (req, res) => {
-    getRepository(Product).find().then((result) => res.json(result));
+    let products;
+    await getRepository(Product).find().then((result) => products = result);
+    for (let product of products) {
+        await getRepository(Category).findOne({where: {id: product.categoryId}}).then((result2) => {
+            product.category = result2.name;
+        });
+    }
+    res.json(products);
 };
 
 const saveCategory = async (req, res) => {

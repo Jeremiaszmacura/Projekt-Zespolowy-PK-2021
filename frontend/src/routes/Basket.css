@@ -1,0 +1,122 @@
+.cartComponent{
+    display: flex;
+    margin-left: 360px;
+    height: fit-content;
+    margin-top: 50px;
+    max-width: 1300px;
+}
+
+.payment{
+    max-width: 800px;
+}
+
+.fullProductInfo{
+    margin-top: 20px;
+    display: flex;
+    border-radius: 8px; 
+    padding: 10px;
+    box-shadow: 2px 2px 4px 2px #888891;
+    transition: .2s all;
+    align-items: center;
+}
+
+.fullProductInfo:hover{
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.fullProductInfo img{
+    object-fit:contain;
+    width: 20%;
+    height: 100px;
+}
+
+.productAmount{
+    margin-left: 20px;
+}
+
+.cenaProduct{
+    margin-left: 20px;
+    display: flex;
+}
+
+.cart{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 300px;
+    max-height: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; 
+    padding: 10px;
+    box-shadow: 2px 2px 4px 2px #888891;
+    transition: .2s all;
+}
+
+.cart .inp{
+    margin-top: 15px;
+}
+
+.cart .order{
+    margin-top: 10px;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: limegreen;
+    color: white;
+}
+
+.cart .paczkomat input{
+    margin-top: 20px;
+    height: 200px;
+    width: 200px;
+    size: 200;
+}
+
+.pustyKoszyk{
+    margin: 70px;
+    font-size: 50px;
+}
+
+.pustyKoszyk button{
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: limegreen;
+    color: white;
+}
+
+.pustyKoszyk button:hover{
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+.cart .order:hover{
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+.fullProductInfo button{
+    display: flex;
+    margin-right: 20px;
+    margin-left: auto;
+    padding: 10px;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.fullProductInfo button:hover{
+    cursor: pointer;
+    background-color: darkred;
+}
+
+
+
+

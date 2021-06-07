@@ -2,6 +2,7 @@ import {getRepository} from "typeorm";
 import {Order} from "../entity/Order";
 import {ProductsLists} from "../entity/ProductsLists";
 import {Product} from "../entity/Product";
+import {Category} from "../entity/Category";
 
 
 const save = async (req, res) => {

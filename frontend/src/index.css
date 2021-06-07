@@ -1,13 +1,11 @@
-body {
+/* import ciekawych czcionek */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  /* Bardzo ładna czcionka moim zdaniem */
+  font-family: "Quicksand";
+  /* Wstępny główny kolor aplikacji (obramowań, napisów itp)  - rzecz do przyszłych dyskusji */
+  color: #130f99;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

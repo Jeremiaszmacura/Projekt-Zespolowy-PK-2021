@@ -40,7 +40,7 @@ export class Product {
     @Column()
     quantity: number;
 
-    @Column('double precision')
+    @Column('double precision', {default: 20})
     vat: number;
 
     @OneToMany(type => ProductsLists, productsLists => productsLists.productId)
