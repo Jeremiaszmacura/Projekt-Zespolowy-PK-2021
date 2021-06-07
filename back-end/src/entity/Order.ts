@@ -17,10 +17,7 @@ export class Order {
     })
     order_status: OrderStatus;
 
-    @Column({
-        type: "double precision",
-        nullable: true
-    })
+    @Column('double precision')
     price: number;
 
     @Column()

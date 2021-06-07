@@ -40,6 +40,12 @@ const login = async (req, res) => {
     });
 };
 
+const login = async (req, res) => {
+    await getRepository(User).findOne({where: {email: req.body.email}}).then((result) => {
+        compareUser(req, res, result);
+    });
+}
+
 const remove = async (req, res) => {
     getRepository(User).findOne(req.user.id).then((result) => {
         getRepository(User).remove(result).then((result) => res.json(result));
